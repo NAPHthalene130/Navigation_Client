@@ -10,5 +10,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private:
+    QWidget* leftWidget;
+    QWidget* rightWidget;
 };
 #endif // MAINWINDOW_H

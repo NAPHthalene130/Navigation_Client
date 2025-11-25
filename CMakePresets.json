@@ -19,9 +19,26 @@
         "CMAKE_TOOLCHAIN_FILE": "H:/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/dist/windows-mingw-qt6"
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/dist/windows-mingw-qt6-run"
       }
       
+    },
+    {
+      "name": "windows-mingw-qt6-debug",
+      "displayName": "Windows MinGW Qt 6.9.3 (Debug)",
+      "generator": "Ninja",
+      "binaryDir": "build/windows-mingw-qt6-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_PREFIX_PATH": "H:/Qt/6.9.3/mingw_64;H:/vcpkg/installed/x64-mingw-dynamic",
+        "CMAKE_C_COMPILER": "H:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "H:/Qt/Tools/mingw1310_64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "H:/Qt/Tools/Ninja/ninja.exe",
+        "CMAKE_TOOLCHAIN_FILE": "H:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/dist/windows-mingw-qt6-debug"
+      }
     }
   ],
   "buildPresets": [
@@ -29,6 +46,11 @@
       "name": "windows-mingw-qt6",
       "displayName": "Build (Windows MinGW Qt 6.9.3)",
       "configurePreset": "windows-mingw-qt6"
+    },
+    {
+      "name": "windows-mingw-qt6-debug",
+      "displayName": "Build (Windows MinGW Qt 6.9.3 Debug)",
+      "configurePreset": "windows-mingw-qt6-debug"
     }
   ],
   "testPresets": [

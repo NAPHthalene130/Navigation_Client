@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+cmake_policy(SET CMP0167 NEW)
 
 if (NOT DEFINED CMAKE_PREFIX_PATH)
     set(_qt_root "H:/Qt")
@@ -21,15 +22,13 @@ endif()
 if (DEFINED CMAKE_PREFIX_PATH AND NOT DEFINED Qt6_DIR)
     set(Qt6_DIR "${CMAKE_PREFIX_PATH}/lib/cmake/Qt6")
 endif()
-
-find_package(Qt6 6.6 REQUIRED COMPONENTS Core Widgets)
-
-
-
-find_package(Boost 1.80 CONFIG REQUIRED COMPONENTS system)
-if (NOT Boost_FOUND)
-    message(FATAL_ERROR "Could not find Boost at the path: ${BOOST_ROOT_DIR}! Please check the folder name.")
+if (EXISTS "H:/vcpkg/installed/x64-mingw-dynamic")
+    list(APPEND CMAKE_PREFIX_PATH "H:/vcpkg/installed/x64-mingw-dynamic")
 endif()
+
+set(QT_FORCE_CMP0156_TO_VALUE NEW)
+find_package(Qt6 6.6 REQUIRED COMPONENTS Core Widgets Network Svg)
+find_package(Boost 1.80 CONFIG REQUIRED COMPONENTS system)
 
 qt_standard_project_setup()
 
@@ -38,21 +37,21 @@ qt_add_executable(Navigation
     main.cpp
     mainwindow.cpp
     mainwindow.h
-        MapDataNetReader.cpp
-        MapDataNetReader.h 
+    MapDataNetReader.cpp
+    MapDataNetReader.h
 )
 
 target_link_libraries(Navigation
     PRIVATE
         Qt::Core
         Qt::Widgets
+        Qt::Network
+        Qt::Svg
         Boost::system
         ws2_32
 )
 
 target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS})
-
- 
 
 include(GNUInstallDirs)
 
@@ -61,6 +60,8 @@ install(TARGETS Navigation
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/img DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 qt_generate_deploy_app_script(
     TARGET Navigation
@@ -81,4 +82,3 @@ if (DEFINED CMAKE_TOOLCHAIN_FILE AND DEFINED VCPKG_TARGET_TRIPLET)
         endif()
     endif()
 endif()
-cmake_policy(SET CMP0167 NEW)
