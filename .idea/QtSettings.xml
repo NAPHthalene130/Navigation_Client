@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="QtSettings">
-    <option name="myCurrentProfile" value="Debug-QT" />
+    <option name="myCurrentProfile" value="QT" />
     <option name="mySettingsPerProfile">
       <map>
-        <entry key="Debug-QT">
+        <entry key="QT">
           <value>
             <PerProfileState>
               <option name="myQmlPath" value="$PROJECT_DIR$/../../../Qt/6.9.2/mingw_64/qml" />
