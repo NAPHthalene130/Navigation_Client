@@ -43,6 +43,10 @@ qt_add_executable(Navigation
     util/ClickedButton.h
     widgets/mainWidget.cpp
     widgets/mainWidget.h
+    util/MapPointButton.cpp
+    util/MapPointButton.h
+    util/MapDataContainer.cpp
+    util/MapDataContainer.h
 )
 
 target_link_libraries(Navigation
