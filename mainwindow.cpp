@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include <QLayoutItem>
 #include <QSizePolicy>
+#include "widgets/mainWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -38,6 +39,12 @@ MainWindow::MainWindow(QWidget *parent)
         QPixmap pix(path);
         imgLabel->setPixmap(pix.scaled(1500,1000,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
+
+    MainWidget* mw = new MainWidget(rightWidget);
+    QVBoxLayout* rightLayout = new QVBoxLayout(rightWidget);
+    rightLayout->setContentsMargins(8,8,8,8);
+    rightLayout->setSpacing(8);
+    rightLayout->addWidget(mw);
 }
 
 MainWindow::~MainWindow() {}
@@ -62,7 +69,7 @@ void MainWindow::changeLeftWidgetShow(QWidget* nowShow)
     }
     if (nowShow->parent() != leftWidget) nowShow->setParent(leftWidget);
     nowShow->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    leftLayout->addWidget(nowShow, 0, Qt::AlignCenter);
+    leftLayout->addWidget(nowShow);
     nowShow->show();
     currentLeft = nowShow;
 }
