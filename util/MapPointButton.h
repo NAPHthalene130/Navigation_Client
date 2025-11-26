@@ -7,8 +7,8 @@ class MapPointButton : public QPushButton
 {
     Q_OBJECT
 public:
-    static const int ROUTE_MARK = 2;
-    static const int SCENIC_SPOT = 1;
+    static const int ROUTE_MARK = 1;
+    static const int SCENIC_SPOT = 2;
 
     explicit MapPointButton(QWidget* parent = nullptr);
     explicit MapPointButton(int type);

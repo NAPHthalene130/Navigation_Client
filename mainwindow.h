@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+class MapDataContainer;
 
 class MainWindow : public QMainWindow
 {
@@ -11,6 +12,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void changeLeftWidgetShow(QWidget* nowShow);
+    void dispalyPoints(MapDataContainer* mapDataContainer);
 
 private:
     QWidget* leftWidget;

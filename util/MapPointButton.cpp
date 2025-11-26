@@ -19,19 +19,27 @@ MapPointButton::MapPointButton(int type)
 
 void MapPointButton::applyStyle()
 {
-    QString color = (type == ROUTE_MARK)
-        ? QString("rgb(108,117,125)")
-        : QString("rgb(40,167,69)");
+    QString brightColor;
+    QString darkColor;
+
+    if (type == ROUTE_MARK) {
+        brightColor = QString("rgb(180, 190, 200)");
+        darkColor = QString("rgb(140, 150, 160)");
+    } else {
+        brightColor = QString("rgb(144, 238, 144)");
+        darkColor = QString("rgb(100, 180, 100)");
+    }
+
     QString style = QString(
         "QPushButton{"
-        "background: transparent;"
+        "background: %1;"
         "border-radius: 10px;"
-        "border: 2px solid %1;"
+        "border: 2px solid black;"
         "}"
         "QPushButton:hover{"
-        "background: rgba(0,0,0,0.06);"
+        "background: %2;"
         "}"
-    ).arg(color);
+    ).arg(brightColor, darkColor);
     setStyleSheet(style);
 }
 

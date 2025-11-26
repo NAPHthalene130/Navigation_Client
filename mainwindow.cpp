@@ -8,6 +8,8 @@
 #include <QLayoutItem>
 #include <QSizePolicy>
 #include "widgets/mainWidget.h"
+#include "util/MapDataContainer.h"
+#include "util/MapPointButton.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -45,6 +47,20 @@ MainWindow::MainWindow(QWidget *parent)
     rightLayout->setContentsMargins(8,8,8,8);
     rightLayout->setSpacing(8);
     rightLayout->addWidget(mw);
+
+    // TEST: add some demo points and display them on the left widget
+    // remove or modify these after integration
+    MapDataContainer demoContainer;
+    auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK);
+    t1->setX(120); t1->setY(160); t1->setName("TEST_POINT_1");
+    demoContainer.addMapPointButton(t1);
+    auto* t2 = new MapPointButton(MapPointButton::SCENIC_SPOT);
+    t2->setX(480); t2->setY(300); t2->setName("TEST_POINT_2");
+    demoContainer.addMapPointButton(t2);
+    auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT);
+    t3->setX(0); t3->setY(0); t3->setName("TEST_POINT_3");
+    demoContainer.addMapPointButton(t3);
+    dispalyPoints(&demoContainer);
 }
 
 MainWindow::~MainWindow() {}
@@ -72,4 +88,17 @@ void MainWindow::changeLeftWidgetShow(QWidget* nowShow)
     leftLayout->addWidget(nowShow);
     nowShow->show();
     currentLeft = nowShow;
+}
+
+void MainWindow::dispalyPoints(MapDataContainer* mapDataContainer)
+{
+    if (!mapDataContainer) return;
+    for (auto* btn : mapDataContainer->pointButtonContainer)
+    {
+        if (!btn) continue;
+        if (btn->parentWidget() != leftWidget) btn->setParent(leftWidget);
+        btn->move(btn->getX(), btn->getY());
+        btn->raise();
+        btn->show();
+    }
 }
