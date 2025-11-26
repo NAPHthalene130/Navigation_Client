@@ -10,9 +10,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void changeLeftWidgetShow(QWidget* nowShow);
 
 private:
     QWidget* leftWidget;
     QWidget* rightWidget;
+    class QVBoxLayout* leftLayout;
+    QWidget* currentLeft;
 };
 #endif // MAINWINDOW_H

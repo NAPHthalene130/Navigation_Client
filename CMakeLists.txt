@@ -37,8 +37,8 @@ qt_add_executable(Navigation
     main.cpp
     mainwindow.cpp
     mainwindow.h
-    MapDataNetReader.cpp
-    MapDataNetReader.h
+    util/MapDataNetReader.cpp
+    util/MapDataNetReader.h
 )
 
 target_link_libraries(Navigation
@@ -51,7 +51,7 @@ target_link_libraries(Navigation
         ws2_32
 )
 
-target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS})
+target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/util)
 
 include(GNUInstallDirs)
 
