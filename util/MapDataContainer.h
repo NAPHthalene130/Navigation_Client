@@ -12,6 +12,7 @@ public:
 
     void addMapPointButton(MapPointButton* button);
     void deleteButtonByName(const std::string& name);
+    void cleanPointButtonContainerNullptr();
 
     std::vector<MapPointButton*> pointButtonContainer;
 };

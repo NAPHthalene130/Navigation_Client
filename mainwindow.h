@@ -30,6 +30,7 @@ public:
     int getNowClickedY();
     MainWidget* mainWidget;
     MapConstructorWidget* mapConstructorWidget;
+    MapDataContainer* mapDataContainer;
 private:
     LeftWidget* leftWidget;
     QWidget* rightWidget;
@@ -37,7 +38,6 @@ private:
     QVBoxLayout* rightLayout;
     QWidget* currentLeft;
     int mouseClickedType = 0;
-    MapDataContainer* mapDataContainer;
 
 };
 #endif // MAINWINDOW_H

@@ -1,4 +1,22 @@
 #include "MapPointButton.h"
+#include "DebugDialog.h"
+#include "../widgets/MapConstructorWidget.h"
+
+MapPointButton::MapPointButton(MapPointButton* otherButton)
+    : QPushButton(nullptr)
+{
+    if (!otherButton) return;
+    x = otherButton->getX();
+    y = otherButton->getY();
+    type = otherButton->getType();
+    name = otherButton->getName();
+    content = otherButton->getContent();
+    this->mainWindow = otherButton->mainWindow;
+    setFixedSize(20,20);
+    setFlat(true);
+    applyStyle();
+    connect(this, &QPushButton::clicked, this, &MapPointButton::clicked);
+}
 
 MapPointButton::MapPointButton(QWidget* parent)
     : QPushButton(parent)
@@ -6,15 +24,18 @@ MapPointButton::MapPointButton(QWidget* parent)
     setFixedSize(20,20);
     setFlat(true);
     applyStyle();
+    connect(this, &QPushButton::clicked, this, &MapPointButton::clicked);
 }
 
-MapPointButton::MapPointButton(int type)
+MapPointButton::MapPointButton(int type, MainWindow* mainWindow)
     : QPushButton(nullptr)
 {
     setFixedSize(20,20);
     setFlat(true);
     setType(type);
     applyStyle();
+    this->mainWindow = mainWindow;
+    connect(this, &QPushButton::clicked, this, &MapPointButton::clicked);
 }
 
 void MapPointButton::applyStyle()
@@ -53,3 +74,15 @@ std::string MapPointButton::getName() const { return name; }
 void MapPointButton::setName(const std::string& n) { name = n; }
 std::string MapPointButton::getContent() const { return content; }
 void MapPointButton::setContent(const std::string& c) { content = c; }
+
+void MapPointButton::clicked()
+{
+    if (!mainWindow) return;
+    if (mainWindow->getMouseClickedType() == MainWindow::DELETE_POINT) {
+        auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
+        if (!container) return;
+        container->deleteButtonByName(this->name);
+        container->cleanPointButtonContainerNullptr();
+        mainWindow->displayPoints(container);
+    }
+}

@@ -23,3 +23,19 @@ void MapDataContainer::deleteButtonByName(const std::string& name)
         }
     }
 }
+
+void MapDataContainer::cleanPointButtonContainerNullptr()
+{
+    for (auto it = pointButtonContainer.begin(); it != pointButtonContainer.end(); )
+    {
+        MapPointButton* b = *it;
+        if (!b || b->parent() == nullptr)
+        {
+            it = pointButtonContainer.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}

@@ -76,6 +76,8 @@ void MainWidget::mapConstructorButtonClicked()
     owner_->getMapConstructorWidget()->resetTempMapDataContainer();
     for (auto point : owner_->getMapDataContainer()->pointButtonContainer) {
         point->hide();
+        auto* newPoint = new MapPointButton(point);
+        owner_->getMapConstructorWidget()->tempMapDataContainer->addMapPointButton(newPoint);
     }
     owner_->displayPoints(owner_->getMapConstructorWidget()->tempMapDataContainer);
 }

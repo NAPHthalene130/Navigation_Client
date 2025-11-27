@@ -52,13 +52,13 @@ MainWindow::MainWindow(QWidget *parent)
     mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
     changeRightWidgetShow(mainWidget);
 
-    auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK);
+    auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK, this);
     t1->setX(120); t1->setY(160); t1->setName("TEST_POINT_1");
     mapDataContainer->addMapPointButton(t1);
-    auto* t2 = new MapPointButton(MapPointButton::SCENIC_SPOT);
+    auto* t2 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
     t2->setX(480); t2->setY(300); t2->setName("TEST_POINT_2");
     mapDataContainer->addMapPointButton(t2);
-    auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT);
+    auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
     t3->setX(990); t3->setY(990); t3->setName("TEST_POINT_3");
     mapDataContainer->addMapPointButton(t3);
     displayPoints(mapDataContainer);

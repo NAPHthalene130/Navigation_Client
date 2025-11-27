@@ -14,12 +14,16 @@ private:
     QVBoxLayout* layout;
     ClickedButton* backButton;
     ClickedButton* addPointButton;
+    ClickedButton* deletePointButton;
+    ClickedButton* saveButton;
     
 public:
     explicit MapConstructorWidget(MainWindow* owner, QWidget* parent = nullptr);
     void refreshAddPointButtonStyle();
     void resetTempMapDataContainer();
     MapDataContainer* tempMapDataContainer;
+private slots:
+    void savePointButtonClicked();
 };
 
 #endif

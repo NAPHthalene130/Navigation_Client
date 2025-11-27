@@ -16,13 +16,13 @@ void LeftWidget::mousePressEvent(QMouseEvent* event)
     nowClickedX = event->x();
     nowClickedY = event->y();
     int t = owner->getMouseClickedType();
-    if (t == 0) {
+    if (t == MainWindow::DEFAULT) {
         
     } else if (t == MainWindow::ADD_POINT) {
         AddPointWidget* w = new AddPointWidget(owner, this,owner->mapConstructorWidget->tempMapDataContainer);
         w->show();
         owner->displayPoints(owner->mapConstructorWidget->tempMapDataContainer);
-    } else if (t == 2) {
+    } else if (t == MainWindow::DELETE_POINT) {
         
     } else {
         

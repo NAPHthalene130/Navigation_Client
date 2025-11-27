@@ -114,15 +114,16 @@ void AddPointWidget::cancelButtonClicked()
 
 void AddPointWidget::okButtonCliked()
 {
-    // TODO: 确定新增点逻辑，写入 container
     std::string typeStr = typeCombo->currentText().toStdString();
     std::string name = nameEdit->text().toStdString();
     std::string content = contentEdit->toPlainText().toStdString();
     int type = typeStr == "路径点" ? MapPointButton::ROUTE_MARK : MapPointButton::SCENIC_SPOT;
-    MapPointButton* point = new MapPointButton(type);
+    MapPointButton* point = new MapPointButton(type,mainWindow);
     point->setName(name);
     point->setContent(content);
     bool nameSameFlag = false;
+    point->setX(nowX-10);
+    point->setY(nowY-10);
     auto* container = tempMapDataContainer;
     if (!container) {
         close();
@@ -161,6 +162,35 @@ void AddPointWidget::okButtonCliked()
         "}"
     );
 
+    msgBox->exec();
+    delete msgBox;
+    return;
+    } else if (name.size() == 0)  {
+        QMessageBox *msgBox = new QMessageBox(this);
+    msgBox->setWindowTitle("提示");
+    msgBox->setText("名字为空");
+    msgBox->setIcon(QMessageBox::Warning);
+    msgBox->setStyleSheet(
+        "QMessageBox {"
+        "    background-color: #f7f7f7;"
+        "    border: 1px solid #dcdcdc;"
+        "    border-radius: 8px;"
+        "}"
+        "QMessageBox QLabel {"
+        "    color: #333333;"
+        "    padding: 10px;"
+        "}"
+        "QMessageBox QPushButton {"
+        "    background-color: #ffffff;"
+        "    border: 1px solid #cccccc;"
+        "    border-radius: 4px;"
+        "    padding: 5px 15px;"
+        "    min-width: 80px;"
+        "}"
+        "QMessageBox QPushButton:hover {"
+        "    background-color: #e6e6e6;"
+        "}"
+    );
     msgBox->exec();
     delete msgBox;
     return;
