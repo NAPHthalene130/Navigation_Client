@@ -10,6 +10,8 @@
 #include "widgets/mainWidget.h"
 #include "util/MapDataContainer.h"
 #include "util/MapPointButton.h"
+#include "widgets/leftWidget.h"
+#include "widgets/mapConstructorWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     QHBoxLayout* layout = new QHBoxLayout(central);
     layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
-    leftWidget = new QWidget(central);
+    leftWidget = new LeftWidget(this, central);
     rightWidget = new QWidget(central);
     leftWidget->setFixedSize(1500,1000);
     leftWidget->setStyleSheet("border: 1px solid #444444;");
@@ -28,7 +30,11 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(rightWidget);
     setFixedSize(1900,1000);
     leftLayout = nullptr;
+    rightLayout = new QVBoxLayout(rightWidget);
+    rightLayout->setContentsMargins(8,8,8,8);
+    rightLayout->setSpacing(8);
     currentLeft = nullptr;
+    mapDataContainer = new MapDataContainer();
 
     QLabel* imgLabel = new QLabel(leftWidget);
     imgLabel->setGeometry(0,0,1500,1000);
@@ -42,55 +48,25 @@ MainWindow::MainWindow(QWidget *parent)
         imgLabel->setPixmap(pix.scaled(1500,1000,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
 
-    MainWidget* mw = new MainWidget(rightWidget);
-    QVBoxLayout* rightLayout = new QVBoxLayout(rightWidget);
-    rightLayout->setContentsMargins(8,8,8,8);
-    rightLayout->setSpacing(8);
-    rightLayout->addWidget(mw);
+    mainWidget = new MainWidget(this, rightWidget);
+    mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
+    changeRightWidgetShow(mainWidget);
 
-    // TEST: add some demo points and display them on the left widget
-    // remove or modify these after integration
-    MapDataContainer demoContainer;
     auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK);
     t1->setX(120); t1->setY(160); t1->setName("TEST_POINT_1");
-    demoContainer.addMapPointButton(t1);
+    mapDataContainer->addMapPointButton(t1);
     auto* t2 = new MapPointButton(MapPointButton::SCENIC_SPOT);
     t2->setX(480); t2->setY(300); t2->setName("TEST_POINT_2");
-    demoContainer.addMapPointButton(t2);
+    mapDataContainer->addMapPointButton(t2);
     auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT);
-    t3->setX(0); t3->setY(0); t3->setName("TEST_POINT_3");
-    demoContainer.addMapPointButton(t3);
-    dispalyPoints(&demoContainer);
+    t3->setX(990); t3->setY(990); t3->setName("TEST_POINT_3");
+    mapDataContainer->addMapPointButton(t3);
+    displayPoints(mapDataContainer);
 }
 
 MainWindow::~MainWindow() {}
 
-void MainWindow::changeLeftWidgetShow(QWidget* nowShow)
-{
-    if (!leftLayout) {
-        leftLayout = new QVBoxLayout(leftWidget);
-        leftLayout->setContentsMargins(0,0,0,0);
-        leftLayout->setSpacing(0);
-    }
-    while (leftLayout->count() > 0) {
-        QLayoutItem* it = leftLayout->takeAt(0);
-        if (it) {
-            if (it->widget()) it->widget()->setParent(nullptr);
-            delete it;
-        }
-    }
-    const auto children = leftWidget->findChildren<QWidget*>(QString(), Qt::FindDirectChildrenOnly);
-    for (QWidget* w : children) {
-        if (w != nowShow) w->hide();
-    }
-    if (nowShow->parent() != leftWidget) nowShow->setParent(leftWidget);
-    nowShow->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    leftLayout->addWidget(nowShow);
-    nowShow->show();
-    currentLeft = nowShow;
-}
-
-void MainWindow::dispalyPoints(MapDataContainer* mapDataContainer)
+void MainWindow::displayPoints(MapDataContainer* mapDataContainer)
 {
     if (!mapDataContainer) return;
     for (auto* btn : mapDataContainer->pointButtonContainer)
@@ -102,3 +78,35 @@ void MainWindow::dispalyPoints(MapDataContainer* mapDataContainer)
         btn->show();
     }
 }
+
+void MainWindow::changeRightWidgetShow(QWidget* nowShow)
+{
+    if (!rightLayout) {
+        rightLayout = new QVBoxLayout(rightWidget);
+        rightLayout->setContentsMargins(0,0,0,0);
+        rightLayout->setSpacing(0);
+    }
+    while (rightLayout->count() > 0) {
+        QLayoutItem* it = rightLayout->takeAt(0);
+        if (it) {
+            if (it->widget()) it->widget()->setParent(nullptr);
+            delete it;
+        }
+    }
+    const auto children = rightWidget->findChildren<QWidget*>(QString(), Qt::FindDirectChildrenOnly);
+    for (QWidget* w : children) {
+        if (w != nowShow) w->hide();
+    }
+    if (nowShow->parent() != rightWidget) nowShow->setParent(rightWidget);
+    rightLayout->addWidget(nowShow);
+    nowShow->show();
+}
+
+int MainWindow::getNowClickedX() { return leftWidget->nowClickedX; }
+int MainWindow::getNowClickedY() { return leftWidget->nowClickedY; }
+
+int MainWindow::getMouseClickedType() const { return mouseClickedType; }
+void MainWindow::setMouseClickedType(int t) { mouseClickedType = t; if (mapConstructorWidget) mapConstructorWidget->refreshAddPointButtonStyle(); }
+MainWidget* MainWindow::getMainWidget() const { return mainWidget; }
+MapConstructorWidget* MainWindow::getMapConstructorWidget() const { return mapConstructorWidget; }
+MapDataContainer* MainWindow::getMapDataContainer() const { return mapDataContainer; }
