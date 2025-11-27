@@ -2,7 +2,7 @@
 #define NAVIGATION_UTIL_MAPDATACONTAINER_H
 #include <vector>
 #include <string>
-#include "Edge.h"
+class Edge;
 class MapPointButton;
 
 class MapDataContainer

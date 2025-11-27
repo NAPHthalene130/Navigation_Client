@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include <QWidget>
 #include <QHBoxLayout>
-#include <QLabel>
 #include <QDir>
 #include <QCoreApplication>
 #include <QVBoxLayout>
@@ -10,6 +9,7 @@
 #include "widgets/mainWidget.h"
 #include "util/MapDataContainer.h"
 #include "util/MapPointButton.h"
+#include "util/Edge.h"
 #include "widgets/leftWidget.h"
 #include "widgets/mapConstructorWidget.h"
 
@@ -36,17 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     currentLeft = nullptr;
     mapDataContainer = new MapDataContainer();
 
-    QLabel* imgLabel = new QLabel(leftWidget);
-    imgLabel->setGeometry(0,0,1500,1000);
-    imgLabel->setScaledContents(true);
-    QString base = QCoreApplication::applicationDirPath() + "/img";
-    QDir dir(base);
-    QStringList files = dir.entryList({"*.png","*.jpg","*.jpeg","*.bmp"}, QDir::Files);
-    if (!files.isEmpty()) {
-        QString path = dir.absoluteFilePath(files.first());
-        QPixmap pix(path);
-        imgLabel->setPixmap(pix.scaled(1500,1000,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-    }
+    // 背景与绘制统一由 LeftWidget::drawWidget 管理
 
     mainWidget = new MainWidget(this, rightWidget);
     mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
@@ -61,6 +51,16 @@ MainWindow::MainWindow(QWidget *parent)
     auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
     t3->setX(990); t3->setY(990); t3->setName("TEST_POINT_3");
     mapDataContainer->addMapPointButton(t3);
+
+    Edge* e1 = new Edge(t1, t2);
+    e1->setType(0);
+    Edge* e2 = new Edge(t2, t3);
+    e2->setType(1);
+    Edge* e3 = new Edge(t1, t3);
+    e3->setType(2);
+    mapDataContainer->edgeContainer.push_back(e1);
+    mapDataContainer->edgeContainer.push_back(e2);
+    mapDataContainer->edgeContainer.push_back(e3);
     displayPoints(mapDataContainer);
 }
 
@@ -69,14 +69,7 @@ MainWindow::~MainWindow() {}
 void MainWindow::displayPoints(MapDataContainer* mapDataContainer)
 {
     if (!mapDataContainer) return;
-    for (auto* btn : mapDataContainer->pointButtonContainer)
-    {
-        if (!btn) continue;
-        if (btn->parentWidget() != leftWidget) btn->setParent(leftWidget);
-        btn->move(btn->getX(), btn->getY());
-        btn->raise();
-        btn->show();
-    }
+    leftWidget->drawWidget(*mapDataContainer);
 }
 
 void MainWindow::changeRightWidgetShow(QWidget* nowShow)
