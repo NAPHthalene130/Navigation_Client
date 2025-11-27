@@ -72,4 +72,5 @@ void MapConstructorWidget::resetTempMapDataContainer()
 void MapConstructorWidget::savePointButtonClicked()
 {
     // TODO: 保存当前临时容器中的点到主容器
+    
 }

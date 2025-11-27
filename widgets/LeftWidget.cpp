@@ -1,31 +1,39 @@
 #include "leftWidget.h"
 #include "../mainwindow.h"
 #include "AddPointWidget.h"
-#include "AddPointWidget.h"
 #include "mapConstructorWidget.h"
 #include <QMouseEvent>
+#include <qnamespace.h>
 
-LeftWidget::LeftWidget(MainWindow* owner, QWidget* parent)
-    : QWidget(parent), owner(owner)
-{
-    setMouseTracking(true);
+LeftWidget::LeftWidget(MainWindow *owner, QWidget *parent)
+    : QWidget(parent), owner(owner) {
+  setMouseTracking(true);
 }
 
-void LeftWidget::mousePressEvent(QMouseEvent* event)
-{
-    nowClickedX = event->x();
-    nowClickedY = event->y();
-    int t = owner->getMouseClickedType();
+void LeftWidget::mousePressEvent(QMouseEvent *event) {
+  nowClickedX = event->x();
+  nowClickedY = event->y();
+  int t = owner->getMouseClickedType();
+  if (event->button() == Qt::LeftButton) {
     if (t == MainWindow::DEFAULT) {
-        
+
     } else if (t == MainWindow::ADD_POINT) {
-        AddPointWidget* w = new AddPointWidget(owner, this,owner->mapConstructorWidget->tempMapDataContainer);
-        w->show();
-        owner->displayPoints(owner->mapConstructorWidget->tempMapDataContainer);
+      AddPointWidget *w = new AddPointWidget(
+          owner, this, owner->mapConstructorWidget->tempMapDataContainer);
+      w->show();
+      owner->displayPoints(owner->mapConstructorWidget->tempMapDataContainer);
     } else if (t == MainWindow::DELETE_POINT) {
-        
-    } else {
-        
+
+    } else if (t == MainWindow::ADD_EDGE) {
+
+    } else if (t == MainWindow::ADD_EDGE) {
+
+    } else if (t == MainWindow::DELETE_EDGE) {
+
     }
-    QWidget::mousePressEvent(event);
+  } else if (event->button() == Qt::RightButton) {
+    owner->setClickedButtonNum(0);
+  }
+
+  QWidget::mousePressEvent(event);
 }

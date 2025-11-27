@@ -2,6 +2,7 @@
 #define NAVIGATION_UTIL_MAPDATACONTAINER_H
 #include <vector>
 #include <string>
+#include "Edge.h"
 class MapPointButton;
 
 class MapDataContainer
@@ -15,6 +16,7 @@ public:
     void cleanPointButtonContainerNullptr();
 
     std::vector<MapPointButton*> pointButtonContainer;
+    std::vector<Edge*> edgeContainer;
 };
 
 #endif //NAVIGATION_UTIL_MAPDATACONTAINER_H

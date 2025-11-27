@@ -105,6 +105,9 @@ void MainWindow::changeRightWidgetShow(QWidget* nowShow)
 int MainWindow::getNowClickedX() { return leftWidget->nowClickedX; }
 int MainWindow::getNowClickedY() { return leftWidget->nowClickedY; }
 
+int MainWindow::getClickedButtonNum() { return clickedButtonNum; }
+void MainWindow::setClickedButtonNum(int num) { clickedButtonNum = num; }
+
 int MainWindow::getMouseClickedType() const { return mouseClickedType; }
 void MainWindow::setMouseClickedType(int t) { mouseClickedType = t; if (mapConstructorWidget) mapConstructorWidget->refreshAddPointButtonStyle(); }
 MainWidget* MainWindow::getMainWidget() const { return mainWidget; }
