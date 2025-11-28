@@ -59,6 +59,7 @@ qt_add_executable(Navigation
     util/NoticeDialog.h
     util/Edge.cpp
     util/Edge.h
+    img/mapPic.png
 )
 
 target_link_libraries(Navigation
