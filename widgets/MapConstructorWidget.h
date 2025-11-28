@@ -15,11 +15,14 @@ private:
     ClickedButton* backButton;
     ClickedButton* addPointButton;
     ClickedButton* deletePointButton;
+    ClickedButton* addEdgeButton;
+    ClickedButton* deleteEdgeButton;
     ClickedButton* saveButton;
     
 public:
     explicit MapConstructorWidget(MainWindow* owner, QWidget* parent = nullptr);
     void refreshAddPointButtonStyle();
+    void buttonColorUpdate();
     void resetTempMapDataContainer();
     MapDataContainer* tempMapDataContainer;
 private slots:

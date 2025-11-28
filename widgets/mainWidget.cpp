@@ -7,8 +7,9 @@
 #include <QCoreApplication>
 #include "../util/MapDataContainer.h"
 #include "../util/MapPointButton.h"
-#include <iostream>
 #include "../util/DebugDialog.h"
+#include "map"
+#include "../util/Edge.h"
 MainWidget::MainWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner_(owner), layout_(new QVBoxLayout(this))
 {
@@ -79,6 +80,21 @@ void MainWidget::mapConstructorButtonClicked()
         auto* newPoint = new MapPointButton(point);
         owner_->getMapConstructorWidget()->tempMapDataContainer->addMapPointButton(newPoint);
     }
+
+    std::map<std::string, MapPointButton*> nameToButtonPtr;
+    for (auto point : owner_->getMapConstructorWidget()->tempMapDataContainer->pointButtonContainer) {
+        nameToButtonPtr[point->getName()] = point;
+    }
+
+    for (auto edge : owner_->getMapDataContainer()->edgeContainer) {
+        std::string name1 = edge->getFirstPointButton()->getName();
+        std::string name2 = edge->getSecondPointButton()->getName();
+        if (nameToButtonPtr.find(name1) != nameToButtonPtr.end() && nameToButtonPtr.find(name2) != nameToButtonPtr.end()) {
+            auto* newEdge = new Edge(nameToButtonPtr[name1], nameToButtonPtr[name2]);
+            owner_->getMapConstructorWidget()->tempMapDataContainer->edgeContainer.push_back(newEdge);
+        }
+    }
+
     owner_->displayPoints(owner_->getMapConstructorWidget()->tempMapDataContainer);
 }
 

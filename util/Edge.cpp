@@ -11,11 +11,11 @@ Edge::Edge(MapPointButton* a, MapPointButton* b) {
     }
 }
 
-MapPointButton* Edge::getFirstPoint() const {
+MapPointButton* Edge::getFirstPointButton() const {
     return firstPoint;
 }
 
-void Edge::setFirstPoint(MapPointButton* p) {
+void Edge::setFirstPointButton(MapPointButton* p) {
     firstPoint = p;
 }
 
@@ -42,9 +42,9 @@ bool Edge::operator==(const Edge& other) const {
 }
 
 bool EdgeLess::operator()(const Edge& a, const Edge& b) const {
-    std::string a1 = a.getFirstPoint() ? a.getFirstPoint()->getName() : "";
+    std::string a1 = a.getFirstPointButton() ? a.getFirstPointButton()->getName() : "";
     std::string a2 = a.getSecondPointButton() ? a.getSecondPointButton()->getName() : "";
-    std::string b1 = b.getFirstPoint() ? b.getFirstPoint()->getName() : "";
+    std::string b1 = b.getFirstPointButton() ? b.getFirstPointButton()->getName() : "";
     std::string b2 = b.getSecondPointButton() ? b.getSecondPointButton()->getName() : "";
     if (a1 == b1) return a2 < b2;
     return a1 < b1;

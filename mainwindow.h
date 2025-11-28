@@ -25,8 +25,6 @@ public:
     void displayPoints(MapDataContainer* mapDataContainer);
     int getMouseClickedType() const;
     void setMouseClickedType(int t);
-    void setClickedButtonNum(int num);
-    int getClickedButtonNum();
     MainWidget* getMainWidget() const;
     MapConstructorWidget* getMapConstructorWidget() const;
     MapDataContainer* getMapDataContainer() const;
@@ -35,13 +33,12 @@ public:
     MainWidget* mainWidget;
     MapConstructorWidget* mapConstructorWidget;
     MapDataContainer* mapDataContainer;
-private:
     LeftWidget* leftWidget;
+private:
     QWidget* rightWidget;
     QVBoxLayout* leftLayout;
     QVBoxLayout* rightLayout;
     QWidget* currentLeft;
     int mouseClickedType = 0;
-    int clickedButtonNum = 0;
 };
 #endif // MAINWINDOW_H

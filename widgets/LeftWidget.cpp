@@ -41,7 +41,7 @@ void LeftWidget::drawWidget(MapDataContainer mapDataContainer)
   painter.setRenderHint(QPainter::Antialiasing, true);
   for (auto* e : mapDataContainer.edgeContainer) {
     if (!e) continue;
-    auto* a = e->getFirstPoint();
+    auto* a = e->getFirstPointButton();
     auto* b = e->getSecondPointButton();
     if (!a || !b) continue;
     QPen pen;
@@ -108,13 +108,12 @@ void LeftWidget::mousePressEvent(QMouseEvent *event) {
 
     } else if (t == MainWindow::ADD_EDGE) {
 
-    } else if (t == MainWindow::ADD_EDGE) {
-
     } else if (t == MainWindow::DELETE_EDGE) {
 
     }
   } else if (event->button() == Qt::RightButton) {
-    owner->setClickedButtonNum(0);
+    clickedButtonNum = 0;
+    if (owner && owner->mapConstructorWidget) owner->mapConstructorWidget->buttonColorUpdate();
   }
 
   QWidget::mousePressEvent(event);

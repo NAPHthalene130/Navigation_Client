@@ -1,6 +1,9 @@
 #include "MapPointButton.h"
 #include "DebugDialog.h"
+#include "NoticeDialog.h"
 #include "../widgets/MapConstructorWidget.h"
+#include "Edge.h"
+#include "NoticeDialog.h"
 
 MapPointButton::MapPointButton(MapPointButton* otherButton)
     : QPushButton(nullptr)
@@ -84,5 +87,33 @@ void MapPointButton::clicked()
         container->deleteButtonByName(this->name);
         container->cleanPointButtonContainerNullptr();
         mainWindow->displayPoints(container);
+    } else if (mainWindow->getMouseClickedType() == MainWindow::ADD_EDGE) {
+        if (mainWindow->leftWidget->clickedButtonNum == 0) {
+            mainWindow->leftWidget->firstClickedPointButton = this;
+            mainWindow->leftWidget->clickedButtonNum++;
+            if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        } else if (mainWindow->leftWidget->clickedButtonNum == 1) {
+            if (mainWindow->leftWidget->firstClickedPointButton == this) return;
+            mainWindow->leftWidget->secondClickedPointButton = this;
+            Edge* edge = new Edge(
+                mainWindow->leftWidget->firstClickedPointButton,
+                mainWindow->leftWidget->secondClickedPointButton
+            );
+            for (auto tempEdge : mainWindow->mapConstructorWidget->tempMapDataContainer->edgeContainer) {
+                if ((edge->getFirstPointButton()->getName() == tempEdge->getFirstPointButton()->getName()) &&
+                    edge->getSecondPointButton()->getName() == tempEdge->getSecondPointButton()->getName()) {
+                        new NoticeDialog("注意","该路径已存在");
+                        return;
+                    }
+            }
+            mainWindow->mapConstructorWidget->tempMapDataContainer->edgeContainer.push_back(edge);
+            mainWindow->leftWidget->drawWidget(*mainWindow->mapConstructorWidget->tempMapDataContainer);
+            mainWindow->leftWidget->firstClickedPointButton = nullptr;
+            mainWindow->leftWidget->secondClickedPointButton = nullptr;
+            mainWindow->leftWidget->clickedButtonNum = 0;
+            if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        }
+    } else if (mainWindow->getMouseClickedType() == MainWindow::DELETE_EDGE) {
+        //TODO: 删除边的逻辑
     }
 }

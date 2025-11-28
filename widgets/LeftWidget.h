@@ -14,6 +14,9 @@ public:
     int nowClickedY;
     void drawWidget(MapDataContainer mapDataContainer);
     void hideMapDataContainer(MapDataContainer* mapDataContainer);
+    MapPointButton* firstClickedPointButton;
+    MapPointButton* secondClickedPointButton;
+    int clickedButtonNum = 0;
 protected:
     void mousePressEvent(class QMouseEvent* event) override;
 

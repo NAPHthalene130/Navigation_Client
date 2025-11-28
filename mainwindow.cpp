@@ -36,8 +36,6 @@ MainWindow::MainWindow(QWidget *parent)
     currentLeft = nullptr;
     mapDataContainer = new MapDataContainer();
 
-    // 背景与绘制统一由 LeftWidget::drawWidget 管理
-
     mainWidget = new MainWidget(this, rightWidget);
     mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
     changeRightWidgetShow(mainWidget);
@@ -52,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
     t3->setX(990); t3->setY(990); t3->setName("TEST_POINT_3");
     mapDataContainer->addMapPointButton(t3);
 
+    //下面拿来测试
     Edge* e1 = new Edge(t1, t2);
     e1->setType(0);
     Edge* e2 = new Edge(t2, t3);
@@ -61,6 +60,7 @@ MainWindow::MainWindow(QWidget *parent)
     mapDataContainer->edgeContainer.push_back(e1);
     mapDataContainer->edgeContainer.push_back(e2);
     mapDataContainer->edgeContainer.push_back(e3);
+    //上面拿来测试
     displayPoints(mapDataContainer);
 }
 
@@ -98,11 +98,9 @@ void MainWindow::changeRightWidgetShow(QWidget* nowShow)
 int MainWindow::getNowClickedX() { return leftWidget->nowClickedX; }
 int MainWindow::getNowClickedY() { return leftWidget->nowClickedY; }
 
-int MainWindow::getClickedButtonNum() { return clickedButtonNum; }
-void MainWindow::setClickedButtonNum(int num) { clickedButtonNum = num; }
 
 int MainWindow::getMouseClickedType() const { return mouseClickedType; }
-void MainWindow::setMouseClickedType(int t) { mouseClickedType = t; if (mapConstructorWidget) mapConstructorWidget->refreshAddPointButtonStyle(); }
+void MainWindow::setMouseClickedType(int t) { mouseClickedType = t; if (mapConstructorWidget) mapConstructorWidget->buttonColorUpdate(); }
 MainWidget* MainWindow::getMainWidget() const { return mainWidget; }
 MapConstructorWidget* MainWindow::getMapConstructorWidget() const { return mapConstructorWidget; }
 MapDataContainer* MainWindow::getMapDataContainer() const { return mapDataContainer; }

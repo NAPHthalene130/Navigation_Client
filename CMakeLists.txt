@@ -55,6 +55,8 @@ qt_add_executable(Navigation
     util/MapDataContainer.h
     util/DebugDialog.cpp
     util/DebugDialog.h
+    util/NoticeDialog.cpp
+    util/NoticeDialog.h
     util/Edge.cpp
     util/Edge.h
 )

@@ -22,7 +22,7 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     layout->addWidget(addPointButton);
     connect(addPointButton, &QPushButton::clicked, this, [this]() {
         this->owner->setMouseClickedType(MainWindow::ADD_POINT);
-        this->refreshAddPointButtonStyle();
+        this->buttonColorUpdate();
     });
 
     deletePointButton = new ClickedButton("删除路径点", ClickedButton::textOnLight, ClickedButton::secondaryGray, this);
@@ -31,7 +31,25 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     layout->addWidget(deletePointButton);
     connect(deletePointButton, &QPushButton::clicked, this, [this]() {
         this->owner->setMouseClickedType(MainWindow::DELETE_POINT);
-        this->refreshAddPointButtonStyle();
+        this->buttonColorUpdate();
+    });
+
+    addEdgeButton = new ClickedButton("添加边", ClickedButton::textOnLight, ClickedButton::secondaryGray, this);
+    addEdgeButton->setHeight(40);
+    addEdgeButton->setFontSize(14);
+    layout->addWidget(addEdgeButton);
+    connect(addEdgeButton, &QPushButton::clicked, this, [this]() {
+        this->owner->setMouseClickedType(MainWindow::ADD_EDGE);
+        this->buttonColorUpdate();
+    });
+
+    deleteEdgeButton = new ClickedButton("删除边", ClickedButton::textOnLight, ClickedButton::secondaryGray, this);
+    deleteEdgeButton->setHeight(40);
+    deleteEdgeButton->setFontSize(14);
+    layout->addWidget(deleteEdgeButton);
+    connect(deleteEdgeButton, &QPushButton::clicked, this, [this]() {
+        this->owner->setMouseClickedType(MainWindow::DELETE_EDGE);
+        this->buttonColorUpdate();
     });
 
     saveButton = new ClickedButton("保存地图", ClickedButton::textOnLight, ClickedButton::primaryBlue, this);
@@ -39,7 +57,7 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     saveButton->setFontSize(14);
     layout->addWidget(saveButton);
     connect(saveButton, &QPushButton::clicked, this, &MapConstructorWidget::savePointButtonClicked);
-    refreshAddPointButtonStyle();
+    buttonColorUpdate();
 
     connect(backButton, &QPushButton::clicked, this, [this]() {
         this->owner->setMouseClickedType(0);
@@ -50,7 +68,14 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
 
 void MapConstructorWidget::refreshAddPointButtonStyle()
 {
+    buttonColorUpdate();
+}
+
+void MapConstructorWidget::buttonColorUpdate()
+{
     int t = owner->getMouseClickedType();
+    int c = owner && owner->leftWidget ? owner->leftWidget->clickedButtonNum : 0;
+
     if (t == MainWindow::ADD_POINT) {
         addPointButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
     } else {
@@ -61,6 +86,30 @@ void MapConstructorWidget::refreshAddPointButtonStyle()
         deletePointButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
     } else {
         deletePointButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
+    }
+
+    if (addEdgeButton) {
+        if (t == MainWindow::ADD_EDGE) {
+            if (c == 0) {
+                addEdgeButton->setColors(ClickedButton::textOnLight, ClickedButton::warningAmber);
+            } else {
+                addEdgeButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
+            }
+        } else {
+            addEdgeButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
+        }
+    }
+
+    if (deleteEdgeButton) {
+        if (t == MainWindow::DELETE_EDGE) {
+            if (c == 0) {
+                deleteEdgeButton->setColors(ClickedButton::textOnLight, ClickedButton::warningAmber);
+            } else {
+                deleteEdgeButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
+            }
+        } else {
+            deleteEdgeButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
+        }
     }
 }
 

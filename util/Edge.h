@@ -5,8 +5,8 @@ class Edge {
 public:
     explicit Edge(MapPointButton* a, MapPointButton* b);
 
-    MapPointButton* getFirstPoint() const;
-    void setFirstPoint(MapPointButton* p);
+    MapPointButton* getFirstPointButton() const;
+    void setFirstPointButton(MapPointButton* p);
 
     MapPointButton* getSecondPointButton() const;
     void setSecondPointButton(MapPointButton* p);
