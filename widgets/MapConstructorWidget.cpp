@@ -3,6 +3,8 @@
 #include "../util/ClickedButton.h"
 #include "MainWidget.h"
 #include <QVBoxLayout>
+#include "../util/Edge.h"
+#include "../util/MapPointButton.h"
 
 MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner(owner)
@@ -120,6 +122,31 @@ void MapConstructorWidget::resetTempMapDataContainer()
 
 void MapConstructorWidget::savePointButtonClicked()
 {
-    // TODO: 保存当前临时容器中的点到主容器
-    
+    if (!owner) return;
+
+    owner->changeRightWidgetShow(owner->getMainWidget());
+    owner->setMouseClickedType(0);
+
+    MapDataContainer* mainMap = owner->getMapDataContainer();
+    if (mainMap) {
+        for (auto* edge : mainMap->edgeContainer) {
+            delete edge;
+        }
+        mainMap->edgeContainer.clear();
+
+        for (auto* point : mainMap->pointButtonContainer) {
+            point->deleteLater();
+        }
+        mainMap->pointButtonContainer.clear();
+
+        if (tempMapDataContainer) {
+            mainMap->pointButtonContainer = tempMapDataContainer->pointButtonContainer;
+            mainMap->edgeContainer = tempMapDataContainer->edgeContainer;
+
+            tempMapDataContainer->pointButtonContainer.clear();
+            tempMapDataContainer->edgeContainer.clear();
+        }
+        
+        owner->displayPoints(mainMap);
+    }
 }
