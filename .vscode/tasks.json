@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "configure (Qt MinGW)",
+      "type": "shell",
+      "command": "${config:cmake.cmakePath}",
+      "args": [
+        "-S", "${workspaceFolder}",
+        "-B", "${workspaceFolder}/build",
+        "-G", "MinGW Makefiles",
+        "-D", "CMAKE_BUILD_TYPE=Debug",
+        "-D", "CMAKE_PREFIX_PATH=F:\\Qt\\6.9.2\\mingw_64",
+        "-D", "CMAKE_C_COMPILER=F:\\Qt\\Tools\\mingw1310_64\\bin\\gcc.exe",
+        "-D", "CMAKE_CXX_COMPILER=F:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe",
+        "-D", "CMAKE_MAKE_PROGRAM=F:\\Qt\\Tools\\mingw1310_64\\bin\\mingw32-make.exe",
+        "-D", "BOOST_ROOT=F:\\CODE\\lib\\boost_1_89_0"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "build (Qt MinGW)",
+      "type": "shell",
+      "command": "${config:cmake.cmakePath}",
+      "args": [
+        "--build", "${workspaceFolder}/build",
+        "-j"
+      ],
+      "dependsOn": "configure (Qt MinGW)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

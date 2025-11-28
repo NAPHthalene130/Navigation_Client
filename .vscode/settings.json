@@ -1,0 +1,21 @@
+{
+  "cmake.cmakePath": "F:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe",
+  "cmake.preferredGenerators": [
+    "MinGW Makefiles"
+  ],
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.configureSettings": {
+    "BOOST_ROOT": "F:\\CODE\\lib\\boost_1_89_0",
+    "CMAKE_PREFIX_PATH": "F:\\Qt\\6.9.2\\mingw_64"
+  },
+  "C_Cpp.default.includePath": [
+    "F:\\CODE\\lib\\boost_1_89_0",
+    "${workspaceFolder}",
+    "F:\\Qt\\6.9.2\\mingw_64\\include"
+  ],
+"C_Cpp.default.compilerPath": "F:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe",
+"files.associations": {
+    "sstream": "cpp"
+}
+}
