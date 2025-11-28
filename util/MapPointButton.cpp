@@ -1,7 +1,10 @@
 #include "MapPointButton.h"
 #include "DebugDialog.h"
 #include "NoticeDialog.h"
+#include "NoticeDialog.h"
 #include "../widgets/MapConstructorWidget.h"
+#include "Edge.h"
+#include "NoticeDialog.h"
 #include "Edge.h"
 #include "NoticeDialog.h"
 
