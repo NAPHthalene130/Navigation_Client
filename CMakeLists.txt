@@ -49,6 +49,10 @@ qt_add_executable(Navigation
     widgets/leftWidget.h
     widgets/mapConstructorWidget.cpp
     widgets/mapConstructorWidget.h
+    widgets/LoadMapWidget.cpp
+    widgets/LoadMapWidget.h
+    widgets/SaveMapWidget.cpp
+    widgets/SaveMapWidget.h
     widgets/addPointWidget.cpp
     widgets/addPointWidget.h
     util/MapDataContainer.cpp

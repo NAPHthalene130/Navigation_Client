@@ -12,6 +12,8 @@
 #include "util/Edge.h"
 #include "widgets/leftWidget.h"
 #include "widgets/mapConstructorWidget.h"
+#include "widgets/LoadMapWidget.h"
+#include "widgets/SaveMapWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -38,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     mainWidget = new MainWidget(this, rightWidget);
     mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
+    loadMapWidget = new LoadMapWidget(this, rightWidget);
+    saveMapWidget = new SaveMapWidget(this, rightWidget);
     changeRightWidgetShow(mainWidget);
 
     auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK, this);
@@ -97,10 +101,10 @@ void MainWindow::changeRightWidgetShow(QWidget* nowShow)
 
 int MainWindow::getNowClickedX() { return leftWidget->nowClickedX; }
 int MainWindow::getNowClickedY() { return leftWidget->nowClickedY; }
-
-
 int MainWindow::getMouseClickedType() const { return mouseClickedType; }
-void MainWindow::setMouseClickedType(int t) { mouseClickedType = t; if (mapConstructorWidget) mapConstructorWidget->buttonColorUpdate(); }
+void MainWindow::setMouseClickedType(int t) { mouseClickedType = t; }
 MainWidget* MainWindow::getMainWidget() const { return mainWidget; }
 MapConstructorWidget* MainWindow::getMapConstructorWidget() const { return mapConstructorWidget; }
+LoadMapWidget* MainWindow::getLoadMapWidget() const { return loadMapWidget; }
+SaveMapWidget* MainWindow::getSaveMapWidget() const { return saveMapWidget; }
 MapDataContainer* MainWindow::getMapDataContainer() const { return mapDataContainer; }
