@@ -1,10 +1,7 @@
 #include "MapPointButton.h"
 #include "DebugDialog.h"
 #include "NoticeDialog.h"
-#include "NoticeDialog.h"
 #include "../widgets/MapConstructorWidget.h"
-#include "Edge.h"
-#include "NoticeDialog.h"
 #include "Edge.h"
 #include "NoticeDialog.h"
 
@@ -117,6 +114,32 @@ void MapPointButton::clicked()
             if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
         }
     } else if (mainWindow->getMouseClickedType() == MainWindow::DELETE_EDGE) {
-        //TODO: 删除边的逻辑
+        //删除边的逻辑
+        auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
+        if (!container) return;
+        if (mainWindow->leftWidget->clickedButtonNum == 0) {
+            mainWindow->leftWidget->firstClickedPointButton = this;
+            mainWindow->leftWidget->clickedButtonNum++;
+            if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        } else if (mainWindow->leftWidget->clickedButtonNum == 1) {
+            if (mainWindow->leftWidget->firstClickedPointButton == this) return;
+            mainWindow->leftWidget->secondClickedPointButton = this;
+            std::string name1 = mainWindow->leftWidget->firstClickedPointButton->getName();
+            std::string name2 = mainWindow->leftWidget->secondClickedPointButton->getName();
+            for (auto it = container->edgeContainer.begin(); it != container->edgeContainer.end(); ++it) {
+                if ((((*it)->getFirstPointButton()->getName() == name1) &&
+                    ((*it)->getSecondPointButton()->getName() == name2)) ||
+                    ((*it)->getFirstPointButton()->getName() == name2) &&
+                    ((*it)->getSecondPointButton()->getName() == name1)) {
+                        container->edgeContainer.erase(it);
+                        break;
+                    }
+            }
+            mainWindow->leftWidget->drawWidget(*mainWindow->mapConstructorWidget->tempMapDataContainer);
+            mainWindow->leftWidget->firstClickedPointButton = nullptr;
+            mainWindow->leftWidget->secondClickedPointButton = nullptr;
+            mainWindow->leftWidget->clickedButtonNum = 0;
+            if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        }
     }
 }
