@@ -93,8 +93,8 @@ void LeftWidget::hideMapDataContainer(MapDataContainer* mapDataContainer)
 }
 
 void LeftWidget::mousePressEvent(QMouseEvent *event) {
-  nowClickedX = event->x();
-  nowClickedY = event->y();
+  nowClickedX = event->position().x();
+  nowClickedY = event->position().y();
   int t = owner->getMouseClickedType();
   if (event->button() == Qt::LeftButton) {
     if (t == MainWindow::DEFAULT) {

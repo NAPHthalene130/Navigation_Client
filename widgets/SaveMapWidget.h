@@ -6,6 +6,7 @@
 class MainWindow;
 class QVBoxLayout;
 class ClickedButton;
+class QLineEdit;
 
 class SaveMapWidget : public QWidget
 {
@@ -14,13 +15,18 @@ private:
     MainWindow* owner;
     QVBoxLayout* layout;
     ClickedButton* backButton;
+    ClickedButton* dirSelectButton;
+    QLineEdit* dirPathLine;
     ClickedButton* fileSaveButton;
+    QLineEdit* nameTextLine;
     ClickedButton* netSaveButton;
+    QLineEdit* tokenTextLine;
 
 public:
     explicit SaveMapWidget(MainWindow* owner, QWidget* parent = nullptr);
 
 private slots:
+    void selectDirButtonClicked();
     void fileSaveButtonClicked();
     void netSaveButtonClicked();
 };

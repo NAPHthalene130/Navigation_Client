@@ -1,0 +1,9 @@
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/Navigation.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/edit_cache.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/rebuild_cache.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/list_install_components.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/install.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/install/local.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/install/strip.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/Navigation_autogen_timestamp_deps.dir
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32/CMakeFiles/Navigation_autogen.dir

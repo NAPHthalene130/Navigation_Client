@@ -1,4 +1,21 @@
 cmake_minimum_required(VERSION 3.30)
+
+if (WIN32 AND NOT DEFINED CMAKE_CXX_COMPILER)
+    set(_qt_root "H:/Qt")
+    if (EXISTS "${_qt_root}")
+        file(GLOB _qt_tools_mingw "${_qt_root}/Tools/mingw*_64/bin/g++.exe")
+        if (_qt_tools_mingw)
+            list(SORT _qt_tools_mingw)
+            list(REVERSE _qt_tools_mingw)
+            list(GET _qt_tools_mingw 0 _qt_compiler)
+            set(CMAKE_CXX_COMPILER "${_qt_compiler}")
+            
+            string(REPLACE "g++.exe" "gcc.exe" _qt_c_compiler "${_qt_compiler}")
+            set(CMAKE_C_COMPILER "${_qt_c_compiler}")
+        endif()
+    endif()
+endif()
+
 project(Navigation LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)

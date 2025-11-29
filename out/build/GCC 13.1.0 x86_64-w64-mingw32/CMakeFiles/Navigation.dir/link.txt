@@ -1,0 +1,3 @@
+H:\Camke\bin\cmake.exe -E rm -f CMakeFiles\Navigation.dir/objects.a
+H:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\Navigation.dir/objects.a @CMakeFiles\Navigation.dir\objects1.rsp
+h:\Qt\Tools\mingw1310_64\bin\g++.exe -g -mwindows -Wl,--whole-archive CMakeFiles\Navigation.dir/objects.a -Wl,--no-whole-archive -o Navigation.exe -Wl,--out-implib,libNavigation.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Navigation.dir\linkLibs.rsp
