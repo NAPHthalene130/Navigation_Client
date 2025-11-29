@@ -65,6 +65,7 @@ qt_add_executable(Navigation
     util/Edge.h
     util/DataIO.cpp
     util/DataIO.h
+    img/mapPic.png
 )
 
 target_link_libraries(Navigation
