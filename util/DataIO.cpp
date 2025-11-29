@@ -11,9 +11,11 @@
 #include <fstream>
 #include <iostream>
 #include <filesystem>
+#include <map>
 #include <string>
 #include "MapDataContainer.h"
 #include "NoticeDialog.h"
+#include "MapPointButton.h"
 
 void DataIO::writeFile(const std::string& path, MapDataContainer* container)
 {
@@ -91,7 +93,72 @@ MapDataContainer* DataIO::readFile(const std::string& path)
         new NoticeDialog("WARN","FILE CAN'T READ");
         return new MapDataContainer();
     }
-    
+    int type = 0;
+    inStream.read(reinterpret_cast<char*>(&type), sizeof(int));
+    MapDataContainer *container = new MapDataContainer();
+    //[type][nameLen][name][x][y][pointType][contentLen][content]
+    while (type != 2) {
+        int nameLen = 0;
+        inStream.read(reinterpret_cast<char*>(&nameLen), sizeof(int));
+        std::string name;
+        name.resize(nameLen);
+        inStream.read(name.data(), nameLen);
+        int x,y,pointType;
+        inStream.read(reinterpret_cast<char*>(&pointType), sizeof(int));
+        inStream.read(reinterpret_cast<char*>(&x), sizeof(int));
+        inStream.read(reinterpret_cast<char*>(&y), sizeof(int));
+        int contentLen = 0;
+        inStream.read(reinterpret_cast<char*>(&contentLen), sizeof(int));
+        std::string content;
+        content.resize(contentLen);
+        inStream.read(content.data(), contentLen);
+
+        MapPointButton *newButton = new MapPointButton();
+        newButton->setName(name);
+        newButton->setContent(content);
+        newButton->setType(type);
+        newButton->setX(x);
+        newButton->setY(y);
+
+        container->addMapPointButton(newButton);
+
+        inStream.read(reinterpret_cast<char*>(&type), sizeof(int));
+    }
+    std::map<std::string, MapPointButton*> nameToMapPointButtonPtr;
+    for (auto button: container->pointButtonContainer) {
+        nameToMapPointButtonPtr[button->getName()] = button;
+    }
+    //[type][name1Len][name1][name2Len][name2][edgeType]
+    while (type != 3) {
+        int name1Len = 0;
+        inStream.read(reinterpret_cast<char*>(&name1Len), sizeof(int));
+        std::string name1;
+        name1.resize(name1Len);
+        inStream.read(name1.data(), name1Len);
+        int name2Len = 0;
+        inStream.read(reinterpret_cast<char*>(&name2Len), sizeof(int));
+        std::string name2;
+        name2.resize(name2Len);
+        inStream.read(name2.data(), name2Len);
+        int edgeType = 0;
+        inStream.read(reinterpret_cast<char*>(&edgeType), sizeof(int));
+        Edge* edge;
+        edge->setFirstPointButton(nameToMapPointButtonPtr[name1]);
+        edge->setSecondPointButton(nameToMapPointButtonPtr[name2]);
+        edge->setType(edgeType);
+        container->edgeContainer.push_back(edge);
+
+        inStream.read(reinterpret_cast<char*>(&type), sizeof(int));
+    }
+
+    check = "MAPDATACHEECK@#$";
+    checkRead.resize(check.size());
+    inStream.read(checkRead.data(), checkRead.size());
+    if (checkRead != check) {
+        //TODO:读取成功但结尾验证失败
+    } else {
+        // TODO:读取成功
+    }
     return new MapDataContainer();
 }
 
