@@ -76,6 +76,8 @@ void MainWidget::mapFunctionButtonClicked()
 void MainWidget::mapConstructorButtonClicked()
 {
     // new DebugDialog("TEST1","TES1");
+    owner_->setMouseClickedType(MainWindow::DEFAULT);
+    owner_->getMapConstructorWidget()->buttonColorUpdate();
     owner_->changeRightWidgetShow(owner_->getMapConstructorWidget());
     owner_->getMapConstructorWidget()->resetTempMapDataContainer();
     for (auto point : owner_->getMapDataContainer()->pointButtonContainer) {

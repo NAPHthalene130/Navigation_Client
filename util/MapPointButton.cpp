@@ -84,6 +84,16 @@ void MapPointButton::clicked()
     if (mainWindow->getMouseClickedType() == MainWindow::DELETE_POINT) {
         auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
         if (!container) return;
+
+        for (auto it = container->edgeContainer.begin(); it != container->edgeContainer.end(); /* 这里留空 */) {
+            if (((*it)->getFirstPointButton()->getName() == this->getName()) ||
+                ((*it)->getSecondPointButton()->getName() == this->getName())) {
+                delete *it;
+                it = container->edgeContainer.erase(it);
+                } else {
+                    ++it;
+                }
+        }
         container->deleteButtonByName(this->name);
         container->cleanPointButtonContainerNullptr();
         mainWindow->displayPoints(container);
