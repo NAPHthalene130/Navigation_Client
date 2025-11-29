@@ -6,6 +6,8 @@
 class MapDataContainer;
 class MainWidget;
 class MapConstructorWidget;
+class LoadMapWidget;
+class SaveMapWidget;
 class QVBoxLayout;
 
 class MainWindow : public QMainWindow
@@ -27,11 +29,15 @@ public:
     void setMouseClickedType(int t);
     MainWidget* getMainWidget() const;
     MapConstructorWidget* getMapConstructorWidget() const;
+    LoadMapWidget* getLoadMapWidget() const;
+    SaveMapWidget* getSaveMapWidget() const;
     MapDataContainer* getMapDataContainer() const;
     int getNowClickedX();
     int getNowClickedY();
     MainWidget* mainWidget;
     MapConstructorWidget* mapConstructorWidget;
+    LoadMapWidget* loadMapWidget;
+    SaveMapWidget* saveMapWidget;
     MapDataContainer* mapDataContainer;
     LeftWidget* leftWidget;
 private:

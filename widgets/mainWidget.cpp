@@ -2,6 +2,8 @@
 #include "../util/ClickedButton.h"
 #include "../mainwindow.h"
 #include "MapConstructorWidget.h"
+#include "LoadMapWidget.h"
+#include "SaveMapWidget.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QCoreApplication>
@@ -10,6 +12,7 @@
 #include "../util/DebugDialog.h"
 #include "map"
 #include "../util/Edge.h"
+
 MainWidget::MainWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner_(owner), layout_(new QVBoxLayout(this))
 {
@@ -100,10 +103,14 @@ void MainWidget::mapConstructorButtonClicked()
 
 void MainWidget::loadMapButtonClicked()
 {
+    owner_->changeRightWidgetShow(owner_->getLoadMapWidget());
+    owner_->getLoadMapWidget()->resetTempMapDataContainer();
+    owner_->displayPoints(owner_->getLoadMapWidget()->tempMapDataContainer);
 }
 
 void MainWidget::saveMaButtonClicked()
 {
+    owner_->changeRightWidgetShow(owner_->getSaveMapWidget());
 }
 
 void MainWidget::exitButtonClicked()

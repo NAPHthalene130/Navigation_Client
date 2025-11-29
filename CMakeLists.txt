@@ -49,6 +49,10 @@ qt_add_executable(Navigation
     widgets/leftWidget.h
     widgets/mapConstructorWidget.cpp
     widgets/mapConstructorWidget.h
+    widgets/LoadMapWidget.cpp
+    widgets/LoadMapWidget.h
+    widgets/SaveMapWidget.cpp
+    widgets/SaveMapWidget.h
     widgets/addPointWidget.cpp
     widgets/addPointWidget.h
     util/MapDataContainer.cpp
@@ -59,6 +63,8 @@ qt_add_executable(Navigation
     util/NoticeDialog.h
     util/Edge.cpp
     util/Edge.h
+    util/DataIO.cpp
+    util/DataIO.h
     img/mapPic.png
 )
 
