@@ -19,7 +19,6 @@
 
 void DataIO::writeFile(const std::string& path, MapDataContainer* container)
 {
-    // TODO
     std::filesystem::path fsPath(path);
     if (!std::filesystem::exists(fsPath.parent_path()))
     {
@@ -66,7 +65,7 @@ void DataIO::writeFile(const std::string& path, MapDataContainer* container)
     }
     type = 3;
     outStream.write(reinterpret_cast<const char*>(&type), sizeof(int));
-    std::string endCheck = "MAPDATACHEECK@#$";
+    std::string endCheck = "MAPDATACHEEK@#$";
     outStream.write(endCheck.c_str(), endCheck.size());
 }
 
@@ -84,7 +83,7 @@ MapDataContainer* DataIO::readFile(const std::string& path)
         return nullptr;
     }
     std::ifstream inStream(fsPath.string(), std::ios::in | std::ios::binary);
-    std::string check = "MAPDATACHEECK@#$";
+    std::string check = "MAPDATACHEEK@#$";
     std::string checkRead;
     checkRead.resize(check.size());
     inStream.read(&checkRead[0], check.size());
@@ -104,9 +103,9 @@ MapDataContainer* DataIO::readFile(const std::string& path)
         name.resize(nameLen);
         inStream.read(name.data(), nameLen);
         int x,y,pointType;
-        inStream.read(reinterpret_cast<char*>(&pointType), sizeof(int));
         inStream.read(reinterpret_cast<char*>(&x), sizeof(int));
         inStream.read(reinterpret_cast<char*>(&y), sizeof(int));
+        inStream.read(reinterpret_cast<char*>(&pointType), sizeof(int));
         int contentLen = 0;
         inStream.read(reinterpret_cast<char*>(&contentLen), sizeof(int));
         std::string content;
@@ -142,16 +141,14 @@ MapDataContainer* DataIO::readFile(const std::string& path)
         inStream.read(name2.data(), name2Len);
         int edgeType = 0;
         inStream.read(reinterpret_cast<char*>(&edgeType), sizeof(int));
-        Edge* edge;
-        edge->setFirstPointButton(nameToMapPointButtonPtr[name1]);
-        edge->setSecondPointButton(nameToMapPointButtonPtr[name2]);
+        Edge* edge = new Edge(nameToMapPointButtonPtr[name1], nameToMapPointButtonPtr[name2]);
         edge->setType(edgeType);
         container->edgeContainer.push_back(edge);
 
         inStream.read(reinterpret_cast<char*>(&type), sizeof(int));
     }
 
-    check = "MAPDATACHEECK@#$";
+    check = "MAPDATACHEEK@#$";
     checkRead.resize(check.size());
     inStream.read(checkRead.data(), checkRead.size());
     if (checkRead != check) {
@@ -159,7 +156,7 @@ MapDataContainer* DataIO::readFile(const std::string& path)
     } else {
         // TODO:读取成功
     }
-    return new MapDataContainer();
+    return container;
 }
 
 MapDataContainer* DataIO::readNet(const std::string& ip, const std::string& port, const std::string& token)

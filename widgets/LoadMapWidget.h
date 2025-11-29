@@ -7,6 +7,7 @@
 class MainWindow;
 class QVBoxLayout;
 class ClickedButton;
+class QLineEdit;
 
 class LoadMapWidget : public QWidget
 {
@@ -15,7 +16,10 @@ private:
     MainWindow* owner;
     QVBoxLayout* layout;
     ClickedButton* backButton;
+    ClickedButton* fileSelectButton;
+    QLineEdit* filePathLine;
     ClickedButton* fileLoadButton;
+    QLineEdit* tokenTextLine;
     ClickedButton* netLoadButton;
     ClickedButton* okButton;
 
@@ -25,6 +29,7 @@ public:
     void resetTempMapDataContainer();
 
 private slots:
+    void selectFileButtonClicked();
     void fileLoadButtonClicked();
     void netLoadButtonClicked();
     void okButtonClicked();
