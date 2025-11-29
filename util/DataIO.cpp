@@ -115,7 +115,7 @@ MapDataContainer* DataIO::readFile(const std::string& path)
         MapPointButton *newButton = new MapPointButton();
         newButton->setName(name);
         newButton->setContent(content);
-        newButton->setType(type);
+        newButton->setType(pointType);
         newButton->setX(x);
         newButton->setY(y);
 

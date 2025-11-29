@@ -24,6 +24,7 @@ public:
     void refreshAddPointButtonStyle();
     void buttonColorUpdate();
     void resetTempMapDataContainer();
+    void resetLeftWidgetState();
     MapDataContainer* tempMapDataContainer;
 private slots:
     void savePointButtonClicked();

@@ -23,6 +23,7 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     addPointButton->setFontSize(14);
     layout->addWidget(addPointButton);
     connect(addPointButton, &QPushButton::clicked, this, [this]() {
+        this->resetLeftWidgetState();
         this->owner->setMouseClickedType(MainWindow::ADD_POINT);
         this->buttonColorUpdate();
     });
@@ -32,6 +33,7 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     deletePointButton->setFontSize(14);
     layout->addWidget(deletePointButton);
     connect(deletePointButton, &QPushButton::clicked, this, [this]() {
+        this->resetLeftWidgetState();
         this->owner->setMouseClickedType(MainWindow::DELETE_POINT);
         this->buttonColorUpdate();
     });
@@ -41,6 +43,7 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     addEdgeButton->setFontSize(14);
     layout->addWidget(addEdgeButton);
     connect(addEdgeButton, &QPushButton::clicked, this, [this]() {
+        this->resetLeftWidgetState();
         this->owner->setMouseClickedType(MainWindow::ADD_EDGE);
         this->buttonColorUpdate();
     });
@@ -50,6 +53,7 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     deleteEdgeButton->setFontSize(14);
     layout->addWidget(deleteEdgeButton);
     connect(deleteEdgeButton, &QPushButton::clicked, this, [this]() {
+        this->resetLeftWidgetState();
         this->owner->setMouseClickedType(MainWindow::DELETE_EDGE);
         this->buttonColorUpdate();
     });
@@ -62,10 +66,20 @@ MapConstructorWidget::MapConstructorWidget(MainWindow* owner, QWidget* parent)
     buttonColorUpdate();
 
     connect(backButton, &QPushButton::clicked, this, [this]() {
+        this->resetLeftWidgetState();
         this->owner->setMouseClickedType(0);
         this->owner->changeRightWidgetShow(this->owner->getMainWidget());
         this->owner->displayPoints(this->owner->mapDataContainer);
     });
+}
+
+void MapConstructorWidget::resetLeftWidgetState()
+{
+    if (owner && owner->leftWidget) {
+        owner->leftWidget->clickedButtonNum = 0;
+        owner->leftWidget->firstClickedPointButton = nullptr;
+        owner->leftWidget->secondClickedPointButton = nullptr;
+    }
 }
 
 void MapConstructorWidget::refreshAddPointButtonStyle()

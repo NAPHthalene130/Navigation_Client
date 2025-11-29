@@ -46,13 +46,13 @@ void LeftWidget::drawWidget(MapDataContainer mapDataContainer)
     if (!a || !b) continue;
     QPen pen;
     if (e->getType() == 0) {
-      pen = QPen(QColor(135,206,235), 3); // 天蓝色
+      pen = QPen(QColor(00,102,255), 5); // 天蓝色
     } else if (e->getType() == 1) {
       // TODO: type==1 边颜色设置
-      pen = QPen(QColor(135,206,235), 3);
+      pen = QPen(QColor(135,206,235), 5);
     } else if (e->getType() == 2) {
       // TODO: type==2 边颜色设置
-      pen = QPen(QColor(135,206,235), 3);
+      pen = QPen(QColor(135,206,235), 5);
     }
     painter.setPen(pen);
     painter.drawLine(QPoint(a->getX()+10, a->getY()+10), QPoint(b->getX()+10, b->getY()+10));

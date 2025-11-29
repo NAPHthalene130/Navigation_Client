@@ -24,6 +24,7 @@ public:
     void setName(const std::string& n);
     std::string getContent() const;
     void setContent(const std::string& c);
+    void setMainWindow(MainWindow* mw);
 private:
     int x = 0;
     int y = 0;

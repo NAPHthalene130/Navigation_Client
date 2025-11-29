@@ -1,6 +1,7 @@
 #include "LoadMapWidget.h"
 #include "../mainwindow.h"
 #include "../util/ClickedButton.h"
+#include "../util/MapPointButton.h"
 #include "LeftWidget.h"
 #include "MainWidget.h"
 #include "MapDataContainer.h"
@@ -131,6 +132,7 @@ void LoadMapWidget::fileLoadButtonClicked()
         return;
     }
     for (auto pointButton : container->pointButtonContainer) {
+        pointButton->setMainWindow(owner);
         tempMapDataContainer->addMapPointButton(pointButton);
     }
     for (auto edge : container->edgeContainer) {
@@ -147,5 +149,7 @@ void LoadMapWidget::netLoadButtonClicked()
 
 void LoadMapWidget::okButtonClicked()
 {
-    
+    owner->mapDataContainer = tempMapDataContainer;
+    owner->setMouseClickedType(0);
+    owner->changeRightWidgetShow(owner->getMainWidget());
 }

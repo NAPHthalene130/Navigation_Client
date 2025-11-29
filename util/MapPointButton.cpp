@@ -22,7 +22,7 @@ MapPointButton::MapPointButton(MapPointButton* otherButton)
 }
 
 MapPointButton::MapPointButton(QWidget* parent)
-    : QPushButton(parent)
+    : QPushButton(parent), mainWindow(nullptr)
 {
     setFixedSize(20,20);
     setFlat(true);
@@ -47,11 +47,11 @@ void MapPointButton::applyStyle()
     QString darkColor;
 
     if (type == ROUTE_MARK) {
-        brightColor = QString("rgb(180, 190, 200)");
-        darkColor = QString("rgb(140, 150, 160)");
+        brightColor = QString("rgba(145, 145, 145, 1)");
+        darkColor = QString("rgba(113, 113, 113, 1)");
     } else {
-        brightColor = QString("rgb(144, 238, 144)");
-        darkColor = QString("rgb(100, 180, 100)");
+        brightColor = QString("rgba(22, 208, 22, 1)");
+        darkColor = QString("rgba(22, 153, 22, 1)");
     }
 
     QString style = QString(
@@ -72,11 +72,15 @@ void MapPointButton::setX(int v) { x = v; }
 int MapPointButton::getY() const { return y; }
 void MapPointButton::setY(int v) { y = v; }
 int MapPointButton::getType() const { return type; }
-void MapPointButton::setType(int v) { type = v; }
+void MapPointButton::setType(int v) {
+    type = v;
+    applyStyle();
+}
 std::string MapPointButton::getName() const { return name; }
 void MapPointButton::setName(const std::string& n) { name = n; }
 std::string MapPointButton::getContent() const { return content; }
 void MapPointButton::setContent(const std::string& c) { content = c; }
+void MapPointButton::setMainWindow(MainWindow* mw) { mainWindow = mw; }
 
 void MapPointButton::clicked()
 {
@@ -96,6 +100,16 @@ void MapPointButton::clicked()
         }
         container->deleteButtonByName(this->name);
         container->cleanPointButtonContainerNullptr();
+        if (mainWindow->leftWidget) {
+            if (mainWindow->leftWidget->firstClickedPointButton == this) {
+                mainWindow->leftWidget->firstClickedPointButton = nullptr;
+                mainWindow->leftWidget->clickedButtonNum = 0;
+            }
+            if (mainWindow->leftWidget->secondClickedPointButton == this) {
+                mainWindow->leftWidget->secondClickedPointButton = nullptr;
+            }
+            if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        }
         mainWindow->displayPoints(container);
     } else if (mainWindow->getMouseClickedType() == MainWindow::ADD_EDGE) {
         if (mainWindow->leftWidget->clickedButtonNum == 0) {
