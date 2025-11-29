@@ -63,6 +63,8 @@ qt_add_executable(Navigation
     util/NoticeDialog.h
     util/Edge.cpp
     util/Edge.h
+    util/DataIO.cpp
+    util/DataIO.h
 )
 
 target_link_libraries(Navigation
