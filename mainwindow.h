@@ -8,6 +8,7 @@ class MainWidget;
 class MapConstructorWidget;
 class LoadMapWidget;
 class SaveMapWidget;
+class NavigationWidget;
 class QVBoxLayout;
 
 class MainWindow : public QMainWindow
@@ -20,6 +21,9 @@ public:
     static const int DELETE_POINT = 2;
     static const int ADD_EDGE = 3;
     static const int DELETE_EDGE = 4;
+    static const int PIPE = 5;
+    static const int NAVIGATION = 6;
+    static const int INFO = 7;
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -31,6 +35,7 @@ public:
     MapConstructorWidget* getMapConstructorWidget() const;
     LoadMapWidget* getLoadMapWidget() const;
     SaveMapWidget* getSaveMapWidget() const;
+    NavigationWidget* getNavigationWidget() const;
     MapDataContainer* getMapDataContainer() const;
     int getNowClickedX();
     int getNowClickedY();
@@ -38,6 +43,7 @@ public:
     MapConstructorWidget* mapConstructorWidget;
     LoadMapWidget* loadMapWidget;
     SaveMapWidget* saveMapWidget;
+    NavigationWidget* navigationWidget;
     MapDataContainer* mapDataContainer;
     LeftWidget* leftWidget;
 private:

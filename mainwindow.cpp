@@ -14,6 +14,7 @@
 #include "widgets/mapConstructorWidget.h"
 #include "widgets/LoadMapWidget.h"
 #include "widgets/SaveMapWidget.h"
+#include "widgets/NavigationWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -42,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
     loadMapWidget = new LoadMapWidget(this, rightWidget);
     saveMapWidget = new SaveMapWidget(this, rightWidget);
+    navigationWidget = new NavigationWidget(this, rightWidget);
     changeRightWidgetShow(mainWidget);
 
     //下面拿来测试
@@ -106,4 +108,5 @@ MainWidget* MainWindow::getMainWidget() const { return mainWidget; }
 MapConstructorWidget* MainWindow::getMapConstructorWidget() const { return mapConstructorWidget; }
 LoadMapWidget* MainWindow::getLoadMapWidget() const { return loadMapWidget; }
 SaveMapWidget* MainWindow::getSaveMapWidget() const { return saveMapWidget; }
+NavigationWidget* MainWindow::getNavigationWidget() const { return navigationWidget; }
 MapDataContainer* MainWindow::getMapDataContainer() const { return mapDataContainer; }

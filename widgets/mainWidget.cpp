@@ -2,6 +2,7 @@
 #include "../util/ClickedButton.h"
 #include "../mainwindow.h"
 #include "MapConstructorWidget.h"
+#include "NavigationWidget.h"
 #include "LoadMapWidget.h"
 #include "SaveMapWidget.h"
 #include <QVBoxLayout>
@@ -71,6 +72,9 @@ void MainWidget::deleteButton(const QString& line)
 
 void MainWidget::mapFunctionButtonClicked()
 {
+    owner_->setMouseClickedType(MainWindow::DEFAULT);
+    owner_->getNavigationWidget()->buttonColorUpdate();
+    owner_->changeRightWidgetShow(owner_->getNavigationWidget());
 }
 
 void MainWidget::mapConstructorButtonClicked()
