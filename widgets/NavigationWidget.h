@@ -28,7 +28,7 @@ private:
     MainWindow* owner;
     QVBoxLayout* layout;
     ClickedButton* backButton;
-    ClickedButton* vipeButton;
+    ClickedButton* pipeButton;
     ClickedButton* navigationButton;
     ClickedButton* infoButton;
     QWidget* infoShowWidget;
@@ -39,7 +39,7 @@ private:
 
 private slots:
     void backButtonClicked();
-    void vipeButtonClicked();
+    void pipeButtonClicked();
     void navigationButtonClicked();
     void infoButtonClicked();
 };

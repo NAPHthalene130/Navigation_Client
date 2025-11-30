@@ -9,6 +9,8 @@ Navigation_autogen/timestamp: \
 	H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/moc_predefs.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/util/ClickedButton.cpp \
 	H:/CODE/Trae/Navigation/Navigation_Client/util/ClickedButton.h \
+	H:/CODE/Trae/Navigation/Navigation_Client/util/DSU.cpp \
+	H:/CODE/Trae/Navigation/Navigation_Client/util/DSU.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/util/DataIO.cpp \
 	H:/CODE/Trae/Navigation/Navigation_Client/util/DataIO.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/util/DebugDialog.cpp \
@@ -25,6 +27,8 @@ Navigation_autogen/timestamp: \
 	H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.cpp \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.h \
+	H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.cpp \
+	H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/SaveMapWidget.cpp \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/SaveMapWidget.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.cpp \
@@ -35,85 +39,23 @@ Navigation_autogen/timestamp: \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/mainWidget.h \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/mapConstructorWidget.cpp \
 	H:/CODE/Trae/Navigation/Navigation_Client/widgets/mapConstructorWidget.h \
-	H:/Camke/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in \
-	H:/Camke/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp \
 	H:/Camke/share/cmake-4.1/Modules/CMakeCXXInformation.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineRCCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeGenericSystem.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeMinGWFindMake.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeRCCompiler.cmake.in \
 	H:/Camke/share/cmake-4.1/Modules/CMakeRCInformation.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeSystem.cmake.in \
 	H:/Camke/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake \
-	H:/Camke/share/cmake-4.1/Modules/CMakeTestRCCompiler.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CheckIncludeFileCXX.cmake \
 	H:/Camke/share/cmake-4.1/Modules/CheckLibraryExists.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Compiler/GNU.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	H:/Camke/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake \
 	H:/Camke/share/cmake-4.1/Modules/FindPackageMessage.cmake \
 	H:/Camke/share/cmake-4.1/Modules/FindThreads.cmake \
@@ -121,17 +63,13 @@ Navigation_autogen/timestamp: \
 	H:/Camke/share/cmake-4.1/Modules/GNUInstallDirs.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Linker/Windows-CXX.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake \
-	H:/Camke/share/cmake-4.1/Modules/Platform/Windows-Determine-CXX.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake \
 	H:/Camke/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake \

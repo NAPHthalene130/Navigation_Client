@@ -461,4 +461,5 @@ CMakeFiles/Navigation.dir/mainwindow.cpp.obj: \
  H:\CODE\Trae\Navigation\Navigation_Client\util/MapPointButton.h \
  H:\CODE\Trae\Navigation\Navigation_Client\widgets/mapConstructorWidget.h \
  H:\CODE\Trae\Navigation\Navigation_Client\widgets/LoadMapWidget.h \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets/SaveMapWidget.h
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets/SaveMapWidget.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets/NavigationWidget.h

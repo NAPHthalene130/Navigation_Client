@@ -84,6 +84,8 @@ qt_add_executable(Navigation
     util/Edge.h
     util/DataIO.cpp
     util/DataIO.h
+    util/DSU.cpp
+    util/DSU.h
     img/mapPic.png
 )
 

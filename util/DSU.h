@@ -3,9 +3,9 @@
 #include <vector>
 class DSU {
 private:
-	DSU(int size);
-public:
 	std::vector<int> parent;
+public:
+	DSU(int size);
 	int findParent(int x);
 	void setParent(int x, int p);
 	void merge(int x,int y);

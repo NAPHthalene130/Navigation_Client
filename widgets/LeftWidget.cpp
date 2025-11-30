@@ -46,12 +46,16 @@ void LeftWidget::drawWidget(MapDataContainer mapDataContainer)
     if (!a || !b) continue;
     QPen pen;
     if (e->getType() == 0) {
-      pen = QPen(QColor(00,102,255), 5); // 天蓝色
+      //默认情况
+      pen = QPen(QColor(00,102,255), 5); // 蓝色
     } else if (e->getType() == 1) {
-      // TODO: type==1 边颜色设置
-      pen = QPen(QColor(135,206,235), 5);
+      //管道边
+      pen = QPen(QColor(0,51,153), 5);
     } else if (e->getType() == 2) {
       // TODO: type==2 边颜色设置
+      pen = QPen(QColor(135,206,235), 5);
+    } else if (e->getType() == -1) {
+      //尽可能隐藏这条边
       pen = QPen(QColor(135,206,235), 5);
     }
     painter.setPen(pen);

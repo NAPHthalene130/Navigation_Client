@@ -1,6 +1,6 @@
-CMakeFiles/Navigation.dir/widgets/LoadMapWidget.cpp.obj: \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\LoadMapWidget.cpp \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\LoadMapWidget.h \
+CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.obj: \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets\NavigationWidget.cpp \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets\NavigationWidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QWidget \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qwidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -381,7 +381,6 @@ CMakeFiles/Navigation.dir/widgets/LoadMapWidget.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qsizepolicy.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qcursor.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qbitmap.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
@@ -397,75 +396,29 @@ CMakeFiles/Navigation.dir/widgets/LoadMapWidget.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qcolor.h \
  H:/Qt/6.9.3/mingw_64/include/QtCore/QString \
  H:/Qt/6.9.3/mingw_64/include/QtCore/qstring.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets\MainWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h \
  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\LeftWidget.h \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\MainWidget.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/QDialog \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qdialog.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QVBoxLayout \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qboxlayout.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlayout.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlayoutitem.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qboxlayout.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qgridlayout.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/QLineEdit \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlineedit.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/QLabel \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlabel.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qframe.h \
- H:/Qt/6.9.3/mingw_64/include/QtGui/qtextcursor.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qpicture.h \
+ H:/Qt/6.9.3/mingw_64/include/QtCore/qiodevice.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qtextdocument.h \
  H:/Qt/6.9.3/mingw_64/include/QtCore/qurl.h \
- H:/Qt/6.9.3/mingw_64/include/QtGui/qtextformat.h \
- H:/Qt/6.9.3/mingw_64/include/QtGui/qpen.h \
- H:/Qt/6.9.3/mingw_64/include/QtGui/qtextoption.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/QFrame \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qframe.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/QFileDialog \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qfiledialog.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qdir.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qdirlisting.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qfiledevice.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qiodevice.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qdatetime.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qcalendar.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qlocale.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qfile.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qfileinfo.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qtimezone.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qdialog.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/QStandardPaths \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qstandardpaths.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/DataIO.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h
+ H:/Qt/6.9.3/mingw_64/include/QtCore/QDebug \
+ H:/Qt/6.9.3/mingw_64/include/QtCore/qdebug.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/util/Edge.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/queue \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/util/DSU.h

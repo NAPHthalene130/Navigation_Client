@@ -10,7 +10,9 @@
 #include <map>
 #include <cmath>
 #include "Edge.h"
-
+#include <queue>
+#include "set"
+#include "DSU.h"
 NavigationWidget::NavigationWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner(owner)
 {
@@ -24,11 +26,11 @@ NavigationWidget::NavigationWidget(MainWindow* owner, QWidget* parent)
     layout->addWidget(backButton);
     connect(backButton, &QPushButton::clicked, this, &NavigationWidget::backButtonClicked);
 
-    vipeButton = new ClickedButton("最优水管铺设", ClickedButton::textOnLight, ClickedButton::secondaryGray, this);
-    vipeButton->setHeight(40);
-    vipeButton->setFontSize(14);
-    layout->addWidget(vipeButton);
-    connect(vipeButton, &QPushButton::clicked, this, &NavigationWidget::vipeButtonClicked);
+    pipeButton = new ClickedButton("最优水管铺设", ClickedButton::textOnLight, ClickedButton::secondaryGray, this);
+    pipeButton->setHeight(40);
+    pipeButton->setFontSize(14);
+    layout->addWidget(pipeButton);
+    connect(pipeButton, &QPushButton::clicked, this, &NavigationWidget::pipeButtonClicked);
 
     navigationButton = new ClickedButton("路径导航", ClickedButton::textOnLight, ClickedButton::secondaryGray, this);
     navigationButton->setHeight(40);
@@ -62,6 +64,7 @@ NavigationWidget::NavigationWidget(MainWindow* owner, QWidget* parent)
 
 void NavigationWidget::backButtonClicked()
 {
+    owner->displayPoints(owner->mapDataContainer);
     setFirstClickedButtonName("");
     setSecondClickedButtonName("");
     setClickedNum(0);
@@ -71,8 +74,9 @@ void NavigationWidget::backButtonClicked()
     }
 }
 
-void NavigationWidget::vipeButtonClicked()
+void NavigationWidget::pipeButtonClicked()
 {
+    owner->displayPoints(owner->mapDataContainer);
     if (owner) {
         owner->setMouseClickedType(MainWindow::PIPE);
         buttonColorUpdate();
@@ -80,6 +84,7 @@ void NavigationWidget::vipeButtonClicked()
     std::vector<MapPointButton*> indexToPoint(owner->getMapDataContainer()->pointButtonContainer.size()+1,nullptr);
     std::map<MapPointButton*,int>  pointToIndex;
     std::map<std::string,MapPointButton*> nameToPoint;
+    DSU osu(owner->getMapDataContainer()->pointButtonContainer.size()+1);
     int index = 1;
     for (auto point : owner->getMapDataContainer()->pointButtonContainer) {
         indexToPoint[index] = point;
@@ -88,7 +93,15 @@ void NavigationWidget::vipeButtonClicked()
         index++;
     }
     
-    std::vector<std::vector<double>> mat(indexToPoint.size(),std::vector<double>(indexToPoint.size(),INT_MAX));
+
+    struct EdgeInfo {
+        double dis;
+        int index1, index2;
+        bool operator<(const EdgeInfo& other) const {
+            return dis > other.dis;
+        }
+    };
+    std::priority_queue<EdgeInfo> edges;
     for (auto edge: owner->getMapDataContainer()->edgeContainer) {
         std::string name1 = edge->getFirstPointButton()->getName();
         std::string name2 = edge->getSecondPointButton()->getName();
@@ -99,16 +112,36 @@ void NavigationWidget::vipeButtonClicked()
         int x2 = edge->getSecondPointButton()->getX();
         int y2 = edge->getSecondPointButton()->getY();
         double dis = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-        mat[index1][index2] = dis;
-        mat[index2][index1] = dis;
+        edges.push({dis,index1,index2});
+    }
+    std::set<std::pair<int,int>> pipeEdges;
+    while (!edges.empty()) {
+        EdgeInfo e = edges.top();
+        edges.pop();
+        if (osu.findParent(e.index1) != osu.findParent(e.index2)) {
+            osu.merge(e.index1,e.index2);
+            pipeEdges.insert({e.index1,e.index2});
+        }
     }
 
-    
-
+    for (auto edge: owner->getMapDataContainer()->edgeContainer) {
+        int index1 = pointToIndex[edge->getFirstPointButton()];
+        int index2 = pointToIndex[edge->getSecondPointButton()];
+        if (pipeEdges.find({index1,index2}) != pipeEdges.end() || pipeEdges.find({index2,index1}) != pipeEdges.end()) {
+            edge->setType(1);
+        } else {
+            edge->setType(-1);
+        }
+    }
+    owner->displayPoints(owner->mapDataContainer);
+    for (auto edge: owner->getMapDataContainer()->edgeContainer) {
+        edge->setType(0);
+    }
 }
 
 void NavigationWidget::navigationButtonClicked()
 {
+    owner->displayPoints(owner->mapDataContainer);
     setClickedNum(0);
     setFirstClickedButtonName("");
     setSecondClickedButtonName("");
@@ -150,31 +183,51 @@ void NavigationWidget::buttonColorUpdate()
     if (!owner) return;
     int t = owner->getMouseClickedType();
     
-    // Vipe Button
     if (t == MainWindow::PIPE) {
-        vipeButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
+        pipeButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
     } else {
-        vipeButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
+        pipeButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
     }
 
-    // Navigation Button
     if (t == MainWindow::NAVIGATION) {
         if (clickedButtonNum == 0) {
             navigationButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
         } else if (clickedButtonNum == 1) {
             navigationButton->setColors(ClickedButton::textOnLight, ClickedButton::warningAmber);
         } else {
-             // Fallback if needed, but requirements only specify 0 and 1
              navigationButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
         }
     } else {
         navigationButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
     }
 
-    // Info Button
     if (t == MainWindow::INFO) {
         infoButton->setColors(ClickedButton::textOnLight, ClickedButton::successGreen);
     } else {
         infoButton->setColors(ClickedButton::textOnLight, ClickedButton::secondaryGray);
     }
+}
+
+void NavigationWidget::setFirstClickedButtonName(std::string name) {
+    firstClickedButtonName = name;
+}
+
+void NavigationWidget::setSecondClickedButtonName(std::string name) {
+    secondClickedButtonName = name;
+}
+
+void NavigationWidget::setClickedNum(int num) {
+    clickedButtonNum = num;
+}
+
+std::string NavigationWidget::getFirstClickedButtonName() const {
+    return firstClickedButtonName;
+}
+
+std::string NavigationWidget::getSecondClickedButtonName() const {
+    return secondClickedButtonName;
+}
+
+int NavigationWidget::getClickedNum() const {
+    return clickedButtonNum;
 }

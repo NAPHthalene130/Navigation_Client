@@ -5,6 +5,7 @@
 #include "KH43KSYMFX/moc_MapPointButton.cpp"
 #include "KH43KSYMFX/moc_NoticeDialog.cpp"
 #include "IMAN36LHMA/moc_LoadMapWidget.cpp"
+#include "IMAN36LHMA/moc_NavigationWidget.cpp"
 #include "IMAN36LHMA/moc_SaveMapWidget.cpp"
 #include "IMAN36LHMA/moc_addPointWidget.cpp"
 #include "IMAN36LHMA/moc_leftWidget.cpp"

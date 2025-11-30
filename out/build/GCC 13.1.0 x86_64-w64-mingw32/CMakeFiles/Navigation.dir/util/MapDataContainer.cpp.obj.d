@@ -391,4 +391,5 @@ CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj: \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtabwidget.h
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtabwidget.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\util\Edge.h

@@ -412,6 +412,8 @@ CMakeFiles/Navigation.dir/Navigation_autogen/mocs_compilation.cpp.obj: \
  H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.h \
  H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC\ 13.1.0\ x86_64-w64-mingw32\Navigation_autogen\IMAN36LHMA/moc_LoadMapWidget.cpp \
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC\ 13.1.0\ x86_64-w64-mingw32\Navigation_autogen\IMAN36LHMA/moc_NavigationWidget.cpp \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.h \
  H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC\ 13.1.0\ x86_64-w64-mingw32\Navigation_autogen\IMAN36LHMA/moc_SaveMapWidget.cpp \
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/SaveMapWidget.h \
  H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC\ 13.1.0\ x86_64-w64-mingw32\Navigation_autogen\IMAN36LHMA/moc_addPointWidget.cpp \
