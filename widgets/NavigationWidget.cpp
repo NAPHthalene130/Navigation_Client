@@ -53,12 +53,14 @@ NavigationWidget::NavigationWidget(MainWindow* owner, QWidget* parent)
     infoLayout->setSpacing(0);
     layout->addWidget(infoShowWidget);
 
-    QLabel* defaultLabel = new QLabel("请选择需要查看的路径点", infoShowWidget);
+    defaultLabel = new QLabel("请选择需要查看的路径点", infoShowWidget);
     defaultLabel->setAlignment(Qt::AlignCenter);
     defaultLabel->setStyleSheet("QLabel { border: none; color: lightgray; font-size: 14px; }");
     switchInfoShowWidget(defaultLabel);
 
     layout->addStretch(1);
+
+    infoWidget = new InfoWidget(infoShowWidget);
 
     buttonColorUpdate();
 }
@@ -165,17 +167,20 @@ void NavigationWidget::switchInfoShowWidget(QWidget* infoWidget)
 {
     if (!infoLayout) return;
 
-    // Clear existing items
     QLayoutItem* item;
     while ((item = infoLayout->takeAt(0)) != nullptr) {
         if (item->widget()) {
-            item->widget()->deleteLater();
+            item->widget()->hide();
+            if (item->widget() != defaultLabel && item->widget() != this->infoWidget) {
+                item->widget()->deleteLater();
+            }
         }
         delete item;
     }
 
     if (infoWidget) {
         infoLayout->addWidget(infoWidget);
+        infoWidget->show();
     }
 }
 
@@ -323,3 +328,6 @@ void NavigationWidget::dij(std::string start, std::string end) {
         edge->setType(0);
     }
 }
+
+QLabel* NavigationWidget::getDefaultLabel() const { return defaultLabel; }
+void NavigationWidget::setDefaultLabel(QLabel* label) { defaultLabel = label; }

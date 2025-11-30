@@ -149,7 +149,12 @@ void LoadMapWidget::netLoadButtonClicked()
 
 void LoadMapWidget::okButtonClicked()
 {
+    if (owner->mapDataContainer) {
+        owner->mapDataContainer->reset();
+        delete owner->mapDataContainer;
+    }
     owner->mapDataContainer = tempMapDataContainer;
+    tempMapDataContainer = new MapDataContainer();
     owner->setMouseClickedType(0);
     owner->changeRightWidgetShow(owner->getMainWidget());
 }

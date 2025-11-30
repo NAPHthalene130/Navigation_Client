@@ -185,5 +185,9 @@ void MapPointButton::clicked()
             mainWindow->navigationWidget->dij(mainWindow->navigationWidget->getFirstClickedButtonName(), mainWindow->navigationWidget->getSecondClickedButtonName());
             mainWindow->navigationWidget->setClickedNum(0);
         }
+    } else if (mainWindow->getMouseClickedType() == MainWindow::INFO) {
+        //信息展示
+        mainWindow->navigationWidget->infoWidget->setPointButton(this);
+        mainWindow->navigationWidget->switchInfoShowWidget(mainWindow->navigationWidget->infoWidget);
     }
 }

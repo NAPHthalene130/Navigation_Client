@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "widgets/InfoWidget.h"
 #include "widgets/leftWidget.h"
 #include <QMainWindow>
 class MapDataContainer;
@@ -46,6 +47,7 @@ public:
     NavigationWidget* navigationWidget;
     MapDataContainer* mapDataContainer;
     LeftWidget* leftWidget;
+    InfoWidget* infoWidget;
 private:
     QWidget* rightWidget;
     QVBoxLayout* leftLayout;

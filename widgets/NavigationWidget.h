@@ -2,10 +2,11 @@
 #define NAVIGATION_WIDGETS_NAVIGATIONWIDGET_H
 
 #include <QWidget>
-
+#include "InfoWidget.h"
 class MainWindow;
 class QVBoxLayout;
 class ClickedButton;
+class QLabel;
 
 class NavigationWidget : public QWidget
 {
@@ -25,6 +26,10 @@ public:
     int getClickedNum() const;
     void dij(std::string start, std::string end);
 
+    QLabel* getDefaultLabel() const;
+    void setDefaultLabel(QLabel* label);
+    InfoWidget* infoWidget;
+
 private:
     MainWindow* owner;
     QVBoxLayout* layout;
@@ -34,6 +39,7 @@ private:
     ClickedButton* infoButton;
     QWidget* infoShowWidget;
     QVBoxLayout* infoLayout;
+    QLabel* defaultLabel;
     std::string firstClickedButtonName = "";
     std::string secondClickedButtonName = "";
     int clickedNum = 0;
