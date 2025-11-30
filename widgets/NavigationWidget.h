@@ -23,6 +23,7 @@ public:
     std::string getFirstClickedButtonName() const;
     std::string getSecondClickedButtonName() const;
     int getClickedNum() const;
+    void dij(std::string start, std::string end);
 
 private:
     MainWindow* owner;

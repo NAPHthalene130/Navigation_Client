@@ -2,8 +2,13 @@
 #include "DebugDialog.h"
 #include "NoticeDialog.h"
 #include "../widgets/MapConstructorWidget.h"
+#include "../widgets/NavigationWidget.h"
 #include "Edge.h"
 #include "NoticeDialog.h"
+#include <map>
+#include <queue>
+#include <vector>
+#include <set>
 
 MapPointButton::MapPointButton(MapPointButton* otherButton)
     : QPushButton(nullptr)
@@ -112,6 +117,7 @@ void MapPointButton::clicked()
         }
         mainWindow->displayPoints(container);
     } else if (mainWindow->getMouseClickedType() == MainWindow::ADD_EDGE) {
+        //添加边
         if (mainWindow->leftWidget->clickedButtonNum == 0) {
             mainWindow->leftWidget->firstClickedPointButton = this;
             mainWindow->leftWidget->clickedButtonNum++;
@@ -164,6 +170,20 @@ void MapPointButton::clicked()
             mainWindow->leftWidget->secondClickedPointButton = nullptr;
             mainWindow->leftWidget->clickedButtonNum = 0;
             if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        }
+    } else if (mainWindow->getMouseClickedType() == MainWindow::NAVIGATION) {
+        //导航逻辑
+        auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
+        if (!container) return;
+        if (mainWindow->navigationWidget->getClickedNum() == 0) {
+            mainWindow->navigationWidget->setFirstClickedButtonName(this->getName());
+            mainWindow->navigationWidget->clickedButtonNum++;
+            if (mainWindow->navigationWidget) mainWindow->navigationWidget->buttonColorUpdate();
+        } else if (mainWindow->navigationWidget->getClickedNum() == 1) {
+            if (mainWindow->navigationWidget->getFirstClickedButtonName() == this->getName()) return;
+            mainWindow->navigationWidget->setSecondClickedButtonName(this->getName());
+            mainWindow->navigationWidget->dij(mainWindow->navigationWidget->getFirstClickedButtonName(), mainWindow->navigationWidget->getSecondClickedButtonName());
+            mainWindow->navigationWidget->setClickedNum(0);
         }
     }
 }

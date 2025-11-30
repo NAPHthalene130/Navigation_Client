@@ -6,6 +6,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
+#include <utility>
 #include <vector>
 #include <map>
 #include <cmath>
@@ -111,7 +112,7 @@ void NavigationWidget::pipeButtonClicked()
         int y1 = edge->getFirstPointButton()->getY();
         int x2 = edge->getSecondPointButton()->getX();
         int y2 = edge->getSecondPointButton()->getY();
-        double dis = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+        double dis = sqrt((double)(x1-x2)*(x1-x2)+(double)(y1-y2)*(y1-y2));
         edges.push({dis,index1,index2});
     }
     std::set<std::pair<int,int>> pipeEdges;
@@ -230,4 +231,95 @@ std::string NavigationWidget::getSecondClickedButtonName() const {
 
 int NavigationWidget::getClickedNum() const {
     return clickedButtonNum;
+}
+
+void NavigationWidget::dij(std::string start, std::string end) {
+    auto* container = owner->getMapDataContainer();
+    if (!container) return;
+    
+    std::map<std::string, int> nameToIndex;
+    int n = container->pointButtonContainer.size();
+    std::vector<MapPointButton*> indexToPoint(n + 1, nullptr);
+    
+    int index = 1;
+    for (auto pointButton : container->pointButtonContainer) {
+        nameToIndex[pointButton->getName()] = index;
+        indexToPoint[index++] = pointButton;
+    }
+    
+    std::vector<std::vector<double>> mat(n + 1, std::vector<double>(n + 1, 1e18));
+    for (auto edge : container->edgeContainer) {
+        if (nameToIndex.find(edge->getFirstPointButton()->getName()) == nameToIndex.end() ||
+            nameToIndex.find(edge->getSecondPointButton()->getName()) == nameToIndex.end()) continue;
+
+        int index1 = nameToIndex[edge->getFirstPointButton()->getName()];
+        int index2 = nameToIndex[edge->getSecondPointButton()->getName()];
+        int x1 = edge->getFirstPointButton()->getX();
+        int y1 = edge->getFirstPointButton()->getY();
+        int x2 = edge->getSecondPointButton()->getX();
+        int y2 = edge->getSecondPointButton()->getY();
+        double len = sqrt((double)(x1 - x2) * (x1 - x2) + (double)(y1 - y2) * (y1 - y2));
+        mat[index1][index2] = len;
+        mat[index2][index1] = len;
+    }
+
+    std::vector<bool> visited(n + 1, false);
+    std::vector<double> dis(n + 1, 1e18);
+    struct node {
+        double dis;
+        int u;
+        bool operator>(const node& a) const { return dis > a.dis; }
+    };
+    std::priority_queue<node, std::vector<node>, std::greater<node>> q;
+    if (nameToIndex.find(start) == nameToIndex.end() || nameToIndex.find(end) == nameToIndex.end()) return;
+    int startIndex = nameToIndex[start];
+    int endIndex = nameToIndex[end];
+    dis[startIndex] = 0;
+    q.push({0, startIndex});
+    std::vector<std::vector<int>> path(n + 1, std::vector<int>());
+    path[startIndex].push_back(startIndex);
+    while (!q.empty()) {
+        auto [d, u] = q.top();
+        q.pop();
+        if (visited[u]) continue;
+        visited[u] = true;
+        if (u == endIndex) break;
+        for (int v = 1; v <= n; v++) {
+             if (mat[u][v] < 1e17) {
+                if (dis[v] > dis[u] + mat[u][v]) {
+                    dis[v] = dis[u] + mat[u][v];
+                    q.push({dis[v], v});
+                    path[v] = path[u];
+                    path[v].push_back(v);
+                }
+             }
+        }
+    }
+
+    std::set<std::pair<int, int>> pathEdges;
+    if (!path[endIndex].empty()) {
+        for (int i = 0; i < path[endIndex].size() - 1; i++) {
+            pathEdges.insert({path[endIndex][i], path[endIndex][i+1]});
+        }
+    }
+
+    for (auto edge : container->edgeContainer) {
+        if (nameToIndex.find(edge->getFirstPointButton()->getName()) == nameToIndex.end() ||
+            nameToIndex.find(edge->getSecondPointButton()->getName()) == nameToIndex.end()) continue;
+
+        int index1 = nameToIndex[edge->getFirstPointButton()->getName()];
+        int index2 = nameToIndex[edge->getSecondPointButton()->getName()];
+        
+        if (pathEdges.find({index1, index2}) != pathEdges.end() || 
+            pathEdges.find({index2, index1}) != pathEdges.end()) {
+            edge->setType(2);
+        } else {
+            edge->setType(-1);
+        }
+    }
+    owner->displayPoints(owner->mapDataContainer);
+    
+    for (auto edge : owner->getMapDataContainer()->edgeContainer) {
+        edge->setType(0);
+    }
 }
