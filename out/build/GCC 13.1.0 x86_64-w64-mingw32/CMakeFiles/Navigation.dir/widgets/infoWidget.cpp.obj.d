@@ -1,6 +1,6 @@
-CMakeFiles/Navigation.dir/widgets/mapConstructorWidget.cpp.obj: \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\mapConstructorWidget.cpp \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\MapConstructorWidget.h \
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj: \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets\infoWidget.cpp \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets\InfoWidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QWidget \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qwidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -381,31 +381,35 @@ CMakeFiles/Navigation.dir/widgets/mapConstructorWidget.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qsizepolicy.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qcursor.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qbitmap.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
- H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
- H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
- H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qwidget.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtabwidget.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/ClickedButton.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/QPushButton \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qpushbutton.h \
- H:/Qt/6.9.3/mingw_64/include/QtWidgets/qabstractbutton.h \
- H:/Qt/6.9.3/mingw_64/include/QtGui/QColor \
- H:/Qt/6.9.3/mingw_64/include/QtGui/qcolor.h \
- H:/Qt/6.9.3/mingw_64/include/QtCore/QString \
- H:/Qt/6.9.3/mingw_64/include/QtCore/qstring.h \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets\MainWidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QVBoxLayout \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qboxlayout.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlayout.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlayoutitem.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qboxlayout.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qgridlayout.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/Edge.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/QLabel \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qlabel.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qframe.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qwidget.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qpicture.h \
+ H:/Qt/6.9.3/mingw_64/include/QtCore/qiodevice.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qtextdocument.h \
+ H:/Qt/6.9.3/mingw_64/include/QtCore/qurl.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/QTextEdit \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtextedit.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qtextoption.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qtextcursor.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qtextformat.h \
+ H:/Qt/6.9.3/mingw_64/include/QtGui/qpen.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/QPushButton \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qpushbutton.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qabstractbutton.h \
  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
- H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
+ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtabwidget.h

@@ -1,5 +1,6 @@
 H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/IMAN36LHMA/moc_NavigationWidget.cpp: H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/moc_predefs.h \
+  H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q17memory.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q20functional.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q20iterator.h \

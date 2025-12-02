@@ -1,6 +1,7 @@
 H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/EWIEGA46WW/moc_mainwindow.cpp: H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
   H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/moc_predefs.h \
   H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
+  H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q17memory.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q20functional.h \

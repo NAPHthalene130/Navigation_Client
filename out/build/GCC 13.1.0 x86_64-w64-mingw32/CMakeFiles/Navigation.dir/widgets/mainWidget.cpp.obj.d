@@ -391,6 +391,7 @@ CMakeFiles/Navigation.dir/widgets/mainWidget.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtCore/QString \
  H:/Qt/6.9.3/mingw_64/include/QtCore/qstring.h \
  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
@@ -399,6 +400,7 @@ CMakeFiles/Navigation.dir/widgets/mainWidget.cpp.obj: \
  H:\CODE\Trae\Navigation\Navigation_Client\widgets\MapConstructorWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:\CODE\Trae\Navigation\Navigation_Client\widgets\NavigationWidget.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets\InfoWidget.h \
  H:\CODE\Trae\Navigation\Navigation_Client\widgets\LoadMapWidget.h \
  H:\CODE\Trae\Navigation\Navigation_Client\widgets\SaveMapWidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QVBoxLayout \

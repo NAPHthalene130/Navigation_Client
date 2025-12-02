@@ -1,9 +1,5 @@
-H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/KH43KSYMFX/moc_MapPointButton.cpp: H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h \
+H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/IMAN36LHMA/moc_infoWidget.cpp: H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-mingw32/Navigation_autogen/moc_predefs.h \
-  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
-  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
-  H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
-  H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q17memory.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q20functional.h \
   H:/Qt/6.9.3/mingw_64/include/QtCore/q20iterator.h \
@@ -155,14 +151,8 @@ H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC\ 13.1.0\ x86_64-w64-ming
   H:/Qt/6.9.3/mingw_64/include/QtGui/qtransform.h \
   H:/Qt/6.9.3/mingw_64/include/QtGui/qwindowdefs.h \
   H:/Qt/6.9.3/mingw_64/include/QtGui/qwindowdefs_win.h \
-  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
-  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QPushButton \
   H:/Qt/6.9.3/mingw_64/include/QtWidgets/QWidget \
-  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
-  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qpushbutton.h \
   H:/Qt/6.9.3/mingw_64/include/QtWidgets/qsizepolicy.h \
-  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtabwidget.h \
   H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

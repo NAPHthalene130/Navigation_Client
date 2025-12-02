@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.cpp" "CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.obj.d"
   "H:/CODE/Trae/Navigation/Navigation_Client/widgets/SaveMapWidget.cpp" "CMakeFiles/Navigation.dir/widgets/SaveMapWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/SaveMapWidget.cpp.obj.d"
   "H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.cpp" "CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj.d"
+  "H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.cpp" "CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj.d"
   "H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.cpp" "CMakeFiles/Navigation.dir/widgets/leftWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/leftWidget.cpp.obj.d"
   "H:/CODE/Trae/Navigation/Navigation_Client/widgets/mainWidget.cpp" "CMakeFiles/Navigation.dir/widgets/mainWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/mainWidget.cpp.obj.d"
   "H:/CODE/Trae/Navigation/Navigation_Client/widgets/mapConstructorWidget.cpp" "CMakeFiles/Navigation.dir/widgets/mapConstructorWidget.cpp.obj" "gcc" "CMakeFiles/Navigation.dir/widgets/mapConstructorWidget.cpp.obj.d"

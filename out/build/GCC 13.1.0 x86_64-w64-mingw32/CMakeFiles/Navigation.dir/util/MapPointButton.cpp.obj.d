@@ -384,9 +384,10 @@ CMakeFiles/Navigation.dir/util/MapPointButton.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qcursor.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qbitmap.h \
  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
- H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QWidget \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qwidget.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -396,4 +397,11 @@ CMakeFiles/Navigation.dir/util/MapPointButton.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qdialog.h \
  H:\CODE\Trae\Navigation\Navigation_Client\util\NoticeDialog.h \
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/MapConstructorWidget.h \
- H:\CODE\Trae\Navigation\Navigation_Client\util\Edge.h
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\util\Edge.h \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/queue \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
+ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h

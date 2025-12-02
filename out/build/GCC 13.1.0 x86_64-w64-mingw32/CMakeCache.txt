@@ -15,7 +15,7 @@
 ########################
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost
+Boost_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=H:/Qt/Tools/mingw1310_64/bin/addr2line.exe
@@ -344,31 +344,31 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 WINDEPLOYQT_EXECUTABLE:FILEPATH=H:/Qt/6.9.3/mingw_64/bin/windeployqt.exe
 
 //The directory containing a CMake configuration file for boost_assert.
-boost_assert_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert
+boost_assert_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_assert
 
 //The directory containing a CMake configuration file for boost_config.
-boost_config_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config
+boost_config_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_config
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers
+boost_headers_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_headers
 
 //The directory containing a CMake configuration file for boost_mp11.
-boost_mp11_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11
+boost_mp11_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_mp11
 
 //The directory containing a CMake configuration file for boost_predef.
-boost_predef_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef
+boost_predef_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_predef
 
 //The directory containing a CMake configuration file for boost_system.
-boost_system_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system
+boost_system_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_system
 
 //The directory containing a CMake configuration file for boost_throw_exception.
-boost_throw_exception_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception
+boost_throw_exception_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_throw_exception
 
 //The directory containing a CMake configuration file for boost_variant2.
-boost_variant2_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2
+boost_variant2_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_variant2
 
 //The directory containing a CMake configuration file for boost_winapi.
-boost_winapi_DIR:PATH=H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi
+boost_winapi_DIR:PATH=H:/vcpkg/installed/x64-windows/share/boost_winapi
 
 
 ########################

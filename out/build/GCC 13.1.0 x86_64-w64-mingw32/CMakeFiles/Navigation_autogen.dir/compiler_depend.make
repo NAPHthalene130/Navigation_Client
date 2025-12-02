@@ -27,6 +27,7 @@ Navigation_autogen/timestamp: H:/CODE/Trae/Navigation/Navigation_Client/CMakeLis
   H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h \
   H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.cpp \
   H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.h \
+  H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.cpp \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.cpp \
@@ -35,6 +36,8 @@ Navigation_autogen/timestamp: H:/CODE/Trae/Navigation/Navigation_Client/CMakeLis
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/SaveMapWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.cpp \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.h \
+  H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.cpp \
+  H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.cpp \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
   H:/CODE/Trae/Navigation/Navigation_Client/widgets/mainWidget.cpp \
@@ -680,35 +683,35 @@ Navigation_autogen/timestamp: H:/CODE/Trae/Navigation/Navigation_Client/CMakeLis
   H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost/BoostConfig.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost/BoostConfigVersion.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-targets.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-config-version.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-config.cmake \
-  H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-targets.cmake
+  H:/vcpkg/installed/x64-windows/share/boost/BoostConfig.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost/BoostConfigVersion.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-targets.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-config-version.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-config.cmake \
+  H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-targets.cmake
 
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake:
@@ -755,17 +758,15 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qtversion.h:
 
-CMakeFiles/4.1.2/CMakeCXXCompiler.cmake:
-
-H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h:
-
 H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/corecrt_wstdlib.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/version:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qhash.h:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-targets.cmake:
+H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h:
+
+CMakeFiles/4.1.2/CMakeCXXCompiler.cmake:
 
 H:/CODE/Trae/Navigation/Navigation_Client/util/DSU.h:
 
@@ -803,8 +804,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memo
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateAdditionalTargetInfo.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-config-version.cmake:
-
 H:/CODE/Trae/Navigation/Navigation_Client/util/DataIO.cpp:
 
 H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h:
@@ -833,11 +832,9 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception
 
 H:/CODE/Trae/Navigation/Navigation_Client/util/Edge.h:
 
-H:/Camke/share/cmake-4.1/Modules/GNUInstallDirs.cmake:
-
-H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateVersionlessAliasTargets.cmake:
-
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake:
+
+H:/vcpkg/installed/x64-windows/share/boost/BoostConfig.cmake:
 
 H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataNetReader.h:
 
@@ -871,17 +868,29 @@ H:/Qt/6.9.3/mingw_64/include/QtCore/qcompilerdetection.h:
 
 H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.h:
 
+H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h:
+
+H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h:
+
+H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-config.cmake:
+
+H:/Camke/share/cmake-4.1/Modules/FindPackageMessage.cmake:
+
+H:/Qt/6.9.3/mingw_64/include/QtCore/q20memory.h:
+
+H:/Qt/6.9.3/mingw_64/include/QtCore/qatomic_cxx11.h:
+
+H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake:
+
+H:/Camke/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake:
+
+H:/Qt/6.9.3/mingw_64/include/QtCore/qshareddata.h:
+
+H:/Camke/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake:
+
 H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.cpp:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6/QtPublicSbomSystemDepHelpers.cmake:
-
-H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake:
-
-H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake:
-
-H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h:
-
-H:/Camke/share/cmake-4.1/Modules/FindVulkan.cmake:
 
 H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.h:
 
@@ -903,8 +912,6 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateVersionlessAliasTarget
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6SvgPrivate/Qt6SvgPrivateVersionlessAliasTargets.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-targets.cmake:
-
 H:/Camke/share/cmake-4.1/Modules/CheckLibraryExists.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake:
@@ -916,6 +923,14 @@ H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.h:
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Svg/Qt6SvgVersionlessAliasTargets.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake:
+
+H:/Camke/share/cmake-4.1/Modules/CMakeGenericSystem.cmake:
+
+H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.cpp:
+
+H:/Camke/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake:
+
+H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.h:
 
 H:/CODE/Trae/Navigation/Navigation_Client/widgets/mainWidget.cpp:
 
@@ -937,6 +952,8 @@ H:/CODE/Trae/Navigation/Navigation_Client/widgets/mapConstructorWidget.cpp:
 
 H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgets-config.h:
 
+H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-config.cmake:
+
 H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h:
 
 H:/Camke/share/cmake-4.1/Modules/CMakeCXXInformation.cmake:
@@ -944,24 +961,6 @@ H:/Camke/share/cmake-4.1/Modules/CMakeCXXInformation.cmake:
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6CorePrivate/Qt6CorePrivateConfigVersion.cmake:
 
 H:/CODE/Trae/Navigation/Navigation_Client/widgets/mapConstructorWidget.h:
-
-H:/Camke/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake:
-
-H:/Camke/share/cmake-4.1/Modules/CMakeGenericSystem.cmake:
-
-H:/Camke/share/cmake-4.1/Modules/FindPackageMessage.cmake:
-
-H:/Qt/6.9.3/mingw_64/include/QtCore/q20memory.h:
-
-H:/Qt/6.9.3/mingw_64/include/QtCore/qatomic_cxx11.h:
-
-H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake:
-
-H:/Camke/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake:
-
-H:/Qt/6.9.3/mingw_64/include/QtCore/qshareddata.h:
-
-H:/Camke/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake:
 
 H:/Camke/share/cmake-4.1/Modules/CMakeRCInformation.cmake:
 
@@ -974,6 +973,8 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwit
 H:/Camke/share/cmake-4.1/Modules/CheckIncludeFileCXX.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qobject_impl.h:
+
+H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-config.cmake:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h:
 
@@ -991,11 +992,25 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Svg/Qt6SvgTargets-relwithdebinfo.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake:
 
+H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake:
+
+H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake:
+
+H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h:
+
+H:/Camke/share/cmake-4.1/Modules/FindVulkan.cmake:
+
+H:/Camke/share/cmake-4.1/Modules/GNUInstallDirs.cmake:
+
+H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateVersionlessAliasTargets.cmake:
+
 H:/Camke/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake:
 
 H:/Camke/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qcontainerfwd.h:
+
+H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-config-version.cmake:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list:
 
@@ -1022,6 +1037,8 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cma
 H:/Camke/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qglobalstatic.h:
+
+H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-targets.cmake:
 
 H:/Camke/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake:
 
@@ -1119,6 +1136,8 @@ H:/Qt/6.9.3/mingw_64/include/QtWidgets/qsizepolicy.h:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qchar.h:
 
+H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-targets.cmake:
+
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qcompare.h:
@@ -1215,6 +1234,8 @@ H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/errno.h:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qmalloc.h:
 
+H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-targets.cmake:
+
 H:/Qt/6.9.3/mingw_64/include/QtCore/qmargins.h:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake:
@@ -1295,6 +1316,8 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6/QtPublicCMakeEarlyPolicyHelpers.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qspan.h:
 
+H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-targets.cmake:
+
 H:/Qt/6.9.3/mingw_64/include/QtCore/qstdlibdetection.h:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qstring.h:
@@ -1360,8 +1383,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/legen
 H:/Qt/6.9.3/mingw_64/include/QtCore/qtextstream.h:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake:
-
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-targets.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtCore/qtformat_impl.h:
 
@@ -1487,6 +1508,8 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake:
 
 H:/Qt/6.9.3/mingw_64/include/QtWidgets/QDialog:
 
+H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-config-version.cmake:
+
 H:/Qt/6.9.3/mingw_64/include/QtWidgets/QPushButton:
 
 H:/Qt/6.9.3/mingw_64/include/QtWidgets/QWidget:
@@ -1504,6 +1527,8 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_
 H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h:
+
+H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-config.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake:
 
@@ -1615,8 +1640,6 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-config-version.cmake:
-
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake:
@@ -1679,6 +1702,8 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmak
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake:
 
+H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-targets.cmake:
+
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake:
@@ -1699,6 +1724,8 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake:
 
+H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-config-version.cmake:
+
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake:
@@ -1710,8 +1737,6 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relw
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake:
-
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-config.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake:
 
@@ -1730,8 +1755,6 @@ H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTarget
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateTargets.cmake:
-
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-targets.cmake:
 
 H:/Qt/6.9.3/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateDependencies.cmake:
 
@@ -1853,6 +1876,8 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/enable_special_members.h:
 
+H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config.cmake:
+
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h:
@@ -1893,8 +1918,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-targets.cmake:
-
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h:
@@ -1921,8 +1944,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-targets.cmake:
-
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h:
@@ -1932,8 +1953,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stre
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h:
-
-H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h:
 
@@ -1971,8 +1990,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-config-version.cmake:
-
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h:
 
 H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h:
@@ -1984,6 +2001,8 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomi
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/concurrence.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h:
+
+H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-config.cmake:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h:
 
@@ -2005,11 +2024,7 @@ H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_timeval.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-targets.cmake:
-
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional:
-
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-config.cmake:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h:
 
@@ -2037,8 +2052,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w6
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/hypergeometric.tcc:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost/BoostConfig.cmake:
-
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc:
@@ -2052,8 +2065,6 @@ H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo:
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h:
-
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-targets.cmake:
 
 H:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
 
@@ -2097,32 +2108,30 @@ H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h:
 
 H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost/BoostConfigVersion.cmake:
+H:/vcpkg/installed/x64-windows/share/boost/BoostConfigVersion.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-config.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-targets.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-config.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config-version.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-targets.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-config-version.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-config-version.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-targets.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-config.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-config-version.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-config.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-config.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-config-version.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-targets.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-config-version.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-config-version.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-config.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-config-version.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-config-version.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-config.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-config.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-config-version.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-config-version.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-config.cmake:
 
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-config.cmake:
-
-H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-config-version.cmake:
+H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-targets.cmake:

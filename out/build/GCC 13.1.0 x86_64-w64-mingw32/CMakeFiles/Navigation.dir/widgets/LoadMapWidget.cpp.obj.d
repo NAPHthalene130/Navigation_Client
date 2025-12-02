@@ -383,6 +383,7 @@ CMakeFiles/Navigation.dir/widgets/LoadMapWidget.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qbitmap.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/CODE/Trae/Navigation/Navigation_Client/mainwindow.h \
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \

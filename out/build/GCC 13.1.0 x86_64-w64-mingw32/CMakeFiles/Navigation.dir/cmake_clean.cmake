@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Navigation.dir/widgets/SaveMapWidget.cpp.obj.d"
   "CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj"
   "CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj.d"
+  "CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj"
+  "CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj.d"
   "CMakeFiles/Navigation.dir/widgets/leftWidget.cpp.obj"
   "CMakeFiles/Navigation.dir/widgets/leftWidget.cpp.obj.d"
   "CMakeFiles/Navigation.dir/widgets/mainWidget.cpp.obj"

@@ -8,6 +8,7 @@
 #include "IMAN36LHMA/moc_NavigationWidget.cpp"
 #include "IMAN36LHMA/moc_SaveMapWidget.cpp"
 #include "IMAN36LHMA/moc_addPointWidget.cpp"
+#include "IMAN36LHMA/moc_infoWidget.cpp"
 #include "IMAN36LHMA/moc_leftWidget.cpp"
 #include "IMAN36LHMA/moc_mainWidget.cpp"
 #include "IMAN36LHMA/moc_mapConstructorWidget.cpp"

@@ -39,8 +39,8 @@ endif()
 if (DEFINED CMAKE_PREFIX_PATH AND NOT DEFINED Qt6_DIR)
     set(Qt6_DIR "${CMAKE_PREFIX_PATH}/lib/cmake/Qt6")
 endif()
-if (EXISTS "H:/vcpkg/installed/x64-mingw-dynamic")
-    list(APPEND CMAKE_PREFIX_PATH "H:/vcpkg/installed/x64-mingw-dynamic")
+if (EXISTS "H:/vcpkg/installed/x64-windows")
+    list(APPEND CMAKE_PREFIX_PATH "H:/vcpkg/installed/x64-windows")
 endif()
 
 set(QT_FORCE_CMP0156_TO_VALUE NEW)
@@ -101,7 +101,7 @@ target_link_libraries(Navigation
         ws2_32
 )
 
-target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/util)
+target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS} "H:/vcpkg/installed/x64-windows/include" ${CMAKE_SOURCE_DIR}/util)
 
 include(GNUInstallDirs)
 

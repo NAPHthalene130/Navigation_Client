@@ -28,6 +28,7 @@ H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw3
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapPointButton.h
  H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.cpp
  H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.h
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/InfoWidget.h
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.cpp
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/LoadMapWidget.h
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/NavigationWidget.cpp
@@ -36,6 +37,8 @@ H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw3
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/SaveMapWidget.h
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.cpp
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.h
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.cpp
+ H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.h
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.cpp
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/leftWidget.h
  H:/CODE/Trae/Navigation/Navigation_Client/widgets/mainWidget.cpp
@@ -681,33 +684,33 @@ H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw3
  H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  H:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost/BoostConfig.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost/BoostConfigVersion.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert/boost_assert-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config/boost_config-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers/boost_headers-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11/boost_mp11-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef/boost_predef-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system/boost_system-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception/boost_throw_exception-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2/boost_variant2-targets.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-config-version.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-config.cmake
- H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi/boost_winapi-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost/BoostConfig.cmake
+ H:/vcpkg/installed/x64-windows/share/boost/BoostConfigVersion.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_assert/boost_assert-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_config/boost_config-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_mp11/boost_mp11-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_predef/boost_predef-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_system/boost_system-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_throw_exception/boost_throw_exception-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_variant2/boost_variant2-targets.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-config-version.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-config.cmake
+ H:/vcpkg/installed/x64-windows/share/boost_winapi/boost_winapi-targets.cmake
 

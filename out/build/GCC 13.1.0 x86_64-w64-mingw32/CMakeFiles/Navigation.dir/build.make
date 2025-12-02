@@ -251,11 +251,26 @@ CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.s"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\CODE\Trae\Navigation\Navigation_Client\widgets\NavigationWidget.cpp -o CMakeFiles\Navigation.dir\widgets\NavigationWidget.cpp.s
 
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj: CMakeFiles/Navigation.dir/flags.make
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/widgets/infoWidget.cpp
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj"
+	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj -MF CMakeFiles\Navigation.dir\widgets\infoWidget.cpp.obj.d -o CMakeFiles\Navigation.dir\widgets\infoWidget.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\widgets\infoWidget.cpp
+
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.i"
+	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\CODE\Trae\Navigation\Navigation_Client\widgets\infoWidget.cpp > CMakeFiles\Navigation.dir\widgets\infoWidget.cpp.i
+
+CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.s"
+	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\CODE\Trae\Navigation\Navigation_Client\widgets\infoWidget.cpp -o CMakeFiles\Navigation.dir\widgets\infoWidget.cpp.s
+
 CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj: CMakeFiles/Navigation.dir/flags.make
 CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/widgets/addPointWidget.cpp
 CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj -MF CMakeFiles\Navigation.dir\widgets\addPointWidget.cpp.obj.d -o CMakeFiles\Navigation.dir\widgets\addPointWidget.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\widgets\addPointWidget.cpp
 
 CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.i: cmake_force
@@ -270,7 +285,7 @@ CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj: CMakeFiles/Navigation.d
 CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.cpp
 CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj -MF CMakeFiles\Navigation.dir\util\MapDataContainer.cpp.obj.d -o CMakeFiles\Navigation.dir\util\MapDataContainer.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\util\MapDataContainer.cpp
 
 CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.i: cmake_force
@@ -285,7 +300,7 @@ CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj: CMakeFiles/Navigation.dir/fl
 CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/util/DebugDialog.cpp
 CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj -MF CMakeFiles\Navigation.dir\util\DebugDialog.cpp.obj.d -o CMakeFiles\Navigation.dir\util\DebugDialog.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\util\DebugDialog.cpp
 
 CMakeFiles/Navigation.dir/util/DebugDialog.cpp.i: cmake_force
@@ -300,7 +315,7 @@ CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj: CMakeFiles/Navigation.dir/f
 CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/util/NoticeDialog.cpp
 CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.obj -MF CMakeFiles\Navigation.dir\util\NoticeDialog.cpp.obj.d -o CMakeFiles\Navigation.dir\util\NoticeDialog.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\util\NoticeDialog.cpp
 
 CMakeFiles/Navigation.dir/util/NoticeDialog.cpp.i: cmake_force
@@ -315,7 +330,7 @@ CMakeFiles/Navigation.dir/util/Edge.cpp.obj: CMakeFiles/Navigation.dir/flags.mak
 CMakeFiles/Navigation.dir/util/Edge.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/util/Edge.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/util/Edge.cpp
 CMakeFiles/Navigation.dir/util/Edge.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Navigation.dir/util/Edge.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Navigation.dir/util/Edge.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/util/Edge.cpp.obj -MF CMakeFiles\Navigation.dir\util\Edge.cpp.obj.d -o CMakeFiles\Navigation.dir\util\Edge.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\util\Edge.cpp
 
 CMakeFiles/Navigation.dir/util/Edge.cpp.i: cmake_force
@@ -330,7 +345,7 @@ CMakeFiles/Navigation.dir/util/DataIO.cpp.obj: CMakeFiles/Navigation.dir/flags.m
 CMakeFiles/Navigation.dir/util/DataIO.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/util/DataIO.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/util/DataIO.cpp
 CMakeFiles/Navigation.dir/util/DataIO.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Navigation.dir/util/DataIO.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Navigation.dir/util/DataIO.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/util/DataIO.cpp.obj -MF CMakeFiles\Navigation.dir\util\DataIO.cpp.obj.d -o CMakeFiles\Navigation.dir\util\DataIO.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\util\DataIO.cpp
 
 CMakeFiles/Navigation.dir/util/DataIO.cpp.i: cmake_force
@@ -345,7 +360,7 @@ CMakeFiles/Navigation.dir/util/DSU.cpp.obj: CMakeFiles/Navigation.dir/flags.make
 CMakeFiles/Navigation.dir/util/DSU.cpp.obj: CMakeFiles/Navigation.dir/includes_CXX.rsp
 CMakeFiles/Navigation.dir/util/DSU.cpp.obj: H:/CODE/Trae/Navigation/Navigation_Client/util/DSU.cpp
 CMakeFiles/Navigation.dir/util/DSU.cpp.obj: CMakeFiles/Navigation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Navigation.dir/util/DSU.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/Navigation.dir/util/DSU.cpp.obj"
 	h:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Navigation.dir/util/DSU.cpp.obj -MF CMakeFiles\Navigation.dir\util\DSU.cpp.obj.d -o CMakeFiles\Navigation.dir\util\DSU.cpp.obj -c H:\CODE\Trae\Navigation\Navigation_Client\util\DSU.cpp
 
 CMakeFiles/Navigation.dir/util/DSU.cpp.i: cmake_force
@@ -370,6 +385,7 @@ Navigation_OBJECTS = \
 "CMakeFiles/Navigation.dir/widgets/LoadMapWidget.cpp.obj" \
 "CMakeFiles/Navigation.dir/widgets/SaveMapWidget.cpp.obj" \
 "CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.obj" \
+"CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj" \
 "CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj" \
 "CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj" \
 "CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj" \
@@ -393,6 +409,7 @@ Navigation.exe: CMakeFiles/Navigation.dir/widgets/mapConstructorWidget.cpp.obj
 Navigation.exe: CMakeFiles/Navigation.dir/widgets/LoadMapWidget.cpp.obj
 Navigation.exe: CMakeFiles/Navigation.dir/widgets/SaveMapWidget.cpp.obj
 Navigation.exe: CMakeFiles/Navigation.dir/widgets/NavigationWidget.cpp.obj
+Navigation.exe: CMakeFiles/Navigation.dir/widgets/infoWidget.cpp.obj
 Navigation.exe: CMakeFiles/Navigation.dir/widgets/addPointWidget.cpp.obj
 Navigation.exe: CMakeFiles/Navigation.dir/util/MapDataContainer.cpp.obj
 Navigation.exe: CMakeFiles/Navigation.dir/util/DebugDialog.cpp.obj
@@ -410,7 +427,7 @@ Navigation.exe: H:/Qt/6.9.3/mingw_64/lib/libQt6EntryPoint.a
 Navigation.exe: CMakeFiles/Navigation.dir/linkLibs.rsp
 Navigation.exe: CMakeFiles/Navigation.dir/objects1.rsp
 Navigation.exe: CMakeFiles/Navigation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable Navigation.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="H:\CODE\Trae\Navigation\Navigation_Client\out\build\GCC 13.1.0 x86_64-w64-mingw32\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable Navigation.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Navigation.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

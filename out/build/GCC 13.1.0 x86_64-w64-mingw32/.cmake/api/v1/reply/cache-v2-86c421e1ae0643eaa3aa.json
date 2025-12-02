@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -6907,7 +6907,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_assert"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_assert"
 		},
 		{
 			"name" : "boost_config_DIR",
@@ -6919,7 +6919,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_config"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_config"
 		},
 		{
 			"name" : "boost_headers_DIR",
@@ -6931,7 +6931,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_headers"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_headers"
 		},
 		{
 			"name" : "boost_mp11_DIR",
@@ -6943,7 +6943,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_mp11"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_mp11"
 		},
 		{
 			"name" : "boost_predef_DIR",
@@ -6955,7 +6955,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_predef"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_predef"
 		},
 		{
 			"name" : "boost_system_DIR",
@@ -6967,7 +6967,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_system"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_system"
 		},
 		{
 			"name" : "boost_throw_exception_DIR",
@@ -6979,7 +6979,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_throw_exception"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_throw_exception"
 		},
 		{
 			"name" : "boost_variant2_DIR",
@@ -6991,7 +6991,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_variant2"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_variant2"
 		},
 		{
 			"name" : "boost_winapi_DIR",
@@ -7003,7 +7003,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "H:/vcpkg/installed/x64-mingw-dynamic/share/boost_winapi"
+			"value" : "H:/vcpkg/installed/x64-windows/share/boost_winapi"
 		}
 	],
 	"kind" : "cache",

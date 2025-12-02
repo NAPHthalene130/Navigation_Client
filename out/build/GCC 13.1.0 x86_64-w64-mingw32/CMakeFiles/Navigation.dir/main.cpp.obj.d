@@ -1,7 +1,7 @@
 CMakeFiles/Navigation.dir/main.cpp.obj: \
  H:\CODE\Trae\Navigation\Navigation_Client\main.cpp \
  H:\CODE\Trae\Navigation\Navigation_Client\mainwindow.h \
- H:\CODE\Trae\Navigation\Navigation_Client\widgets/leftWidget.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets/InfoWidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QWidget \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qwidget.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -382,6 +382,7 @@ CMakeFiles/Navigation.dir/main.cpp.obj: \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qsizepolicy.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qcursor.h \
  H:/Qt/6.9.3/mingw_64/include/QtGui/qbitmap.h \
+ H:\CODE\Trae\Navigation\Navigation_Client\widgets/leftWidget.h \
  H:/CODE/Trae/Navigation/Navigation_Client/util/MapDataContainer.h \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
  H:/Qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
