@@ -16,6 +16,9 @@
 #include "MapDataContainer.h"
 #include "NoticeDialog.h"
 #include "MapPointButton.h"
+#include <boost/asio.hpp>
+#include <boost/asio/ip/tcp.hpp>
+#include <boost/algorithm/string.hpp>
 
 void DataIO::writeFile(const std::string& path, MapDataContainer* container)
 {
@@ -71,7 +74,46 @@ void DataIO::writeFile(const std::string& path, MapDataContainer* container)
 
 void DataIO::writeNet(const std::string& ip, const std::string& port, MapDataContainer* container, const std::string& token)
 {
-    // TODO
+    using boost::asio::ip::tcp;
+    try {
+        tcp::iostream stream(ip, port);
+        if (!stream) {
+            new NoticeDialog("错误","连接失败");
+            return;
+        }
+        stream << "#NAVIGATION#CHECK\r\n";
+        stream << "#NAVIGATION#@SAVE@" << token << "\r\n";
+        stream.flush();
+        std::string response;
+        std::getline(stream, response);
+        if (response == "#NAVIGATION#@TOKEN_OK") {
+            stream << "#NAVIGATION#@CHECK2\r\n";
+            stream.flush();
+            //[CHECK]@[POINT]@[NAME]@[X]@[Y]@[TYPE]@[CONTENT]
+            for (auto point : container->pointButtonContainer) {
+                stream << "#NAVIGATION#@POINT@" << point->getName() << "@" << point->getX() << "@" << point->getY() << "@" << point->getType() << "@" << point->getContent() << "\r\n";
+                stream.flush();
+            }
+            stream << "#NAVIGATION#@EDGES\r\n";
+            stream.flush();
+            //[CHECK]@[EDGE]@[firstName]@[secondNmae]@[type]
+            for (auto edge: container->edgeContainer) {
+                stream << "#NAVIGATION#@EDGE@" << edge->getFirstPointButton()->getName() << "@" << edge->getSecondPointButton()->getName() << "@" << edge->getType() << "\r\n";
+                stream.flush();
+            }
+            stream << "#NAVIGATION#@END\r\n";
+            stream.flush();
+        } else if (response == "#NAVIGATION#@TOKEN_ERROR") {
+            new NoticeDialog("错误","TOKEN已被使用");
+        } else {
+            new NoticeDialog("错误","地图保存失败，连接错误");
+        }
+        stream.close();
+    } catch (std::exception& e) {
+        new NoticeDialog("错误","连接发生错误");
+        return;
+    }
+    new NoticeDialog("提示","地图保存成功");
 }
 
 MapDataContainer* DataIO::readFile(const std::string& path)
@@ -161,6 +203,76 @@ MapDataContainer* DataIO::readFile(const std::string& path)
 
 MapDataContainer* DataIO::readNet(const std::string& ip, const std::string& port, const std::string& token)
 {
-    // TODO
+    MapDataContainer* tempMapDataContainer = new MapDataContainer();
+    using boost::asio::ip::tcp;
+    try {
+        tcp::iostream stream(ip, port);
+        if (!stream) {
+            new NoticeDialog("错误","连接失败");
+            return new MapDataContainer();
+        }
+        stream << "#NAVIGATION#@CHECK\r\n";
+        stream << "#NAVIGATION#@LOAD@" << token << "\r\n";
+        stream.flush();
+        std::string response;
+        std::getline(stream, response);
+        if (response == "#NAVIGATION#@TOKEN_OK") {
+            std::vector<std::string> command;
+            while (std::getline(stream, response)) {
+                command.push_back(response);
+                if (response == "#NAVIGATION#@END") {
+                    break;
+                }
+            }
+            std::map<std::string, MapPointButton*> nameToMapPointButtonPtr;
+            for (auto command : command) {
+                if (command == "#NAVIGATION#@END") {
+                    continue;
+                }
+                std::vector<std::string> commandTokens;
+                boost::split(commandTokens, command, boost::is_any_of("@"));
+                if (commandTokens[0] != "#NAVIGATION#") {
+                    continue;
+                }
+
+                //[CHECK]@[POINT]@[NAME]@[X]@[Y]@[TYPE]@[CONTENT]
+                if (commandTokens[1] == "POINT") {
+                    MapPointButton* newPoints = new MapPointButton();
+                    std::string name = commandTokens[2];
+                    int x = std::stoi(commandTokens[3]);
+                    int y = std::stoi(commandTokens[4]);
+                    int type = std::stoi(commandTokens[5]);
+                    std::string content = commandTokens[6];
+                    newPoints->setName(name);
+                    newPoints->setX(x);
+                    newPoints->setY(y);
+                    newPoints->setType(type);
+                    newPoints->setContent(content);
+                    tempMapDataContainer->addMapPointButton(newPoints);
+                }
+                if (commandTokens[1] == "EDGES") {
+                    for (auto button: tempMapDataContainer->pointButtonContainer) {
+                        nameToMapPointButtonPtr[button->getName()] = button;
+                    }
+                }
+                //[CHECK]@[EDGE]@[firstName]@[secondNmae]@[type]
+                if (commandTokens[1] == "EDGE") {
+                    std::string firstName = commandTokens[2];
+                    std::string secondName = commandTokens[3];
+                    int type = std::stoi(commandTokens[4]);
+                    Edge* edge = new Edge(nameToMapPointButtonPtr[firstName], nameToMapPointButtonPtr[secondName]);
+                    edge->setType(type);
+                    tempMapDataContainer->edgeContainer.push_back(edge);
+                }
+            }
+            stream.close();
+        } else if (response == "#NAVIGATION#@TOKEN_ERROR") {
+            new NoticeDialog("错误","TOKEN未找到");
+        } else {
+            new NoticeDialog("错误","连接错误");
+        }
+    } catch (const std::exception& e) {
+        new NoticeDialog("错误", e.what());
+    }
     return new MapDataContainer();
 }

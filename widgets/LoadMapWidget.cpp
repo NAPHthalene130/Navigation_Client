@@ -12,7 +12,9 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include "../util/DataIO.h"
-
+#include <boost/asio.hpp>
+#include <vector>
+#include <boost/algorithm/string.hpp>
 LoadMapWidget::LoadMapWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner(owner)
 {
@@ -144,7 +146,7 @@ void LoadMapWidget::fileLoadButtonClicked()
 
 void LoadMapWidget::netLoadButtonClicked()
 {
-    
+    //TODO DATAIO
 }
 
 void LoadMapWidget::okButtonClicked()
