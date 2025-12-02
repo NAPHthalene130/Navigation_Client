@@ -48,11 +48,17 @@ public:
     MapDataContainer* mapDataContainer;
     LeftWidget* leftWidget;
     InfoWidget* infoWidget;
+    std::string getIp() const;
+    std::string getPort() const;
+    void setIp(const std::string& ip);
+    void setPort(const std::string& port);
 private:
     QWidget* rightWidget;
     QVBoxLayout* leftLayout;
     QVBoxLayout* rightLayout;
     QWidget* currentLeft;
     int mouseClickedType = 0;
+    std::string ip;
+    std::string port;
 };
 #endif // MAINWINDOW_H

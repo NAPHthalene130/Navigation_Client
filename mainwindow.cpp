@@ -19,6 +19,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    ip = "127.0.0.1";
+    port = "10086";
     QWidget* central = new QWidget(this);
     setCentralWidget(central);
     QHBoxLayout* layout = new QHBoxLayout(central);
@@ -110,3 +112,8 @@ LoadMapWidget* MainWindow::getLoadMapWidget() const { return loadMapWidget; }
 SaveMapWidget* MainWindow::getSaveMapWidget() const { return saveMapWidget; }
 NavigationWidget* MainWindow::getNavigationWidget() const { return navigationWidget; }
 MapDataContainer* MainWindow::getMapDataContainer() const { return mapDataContainer; }
+
+void MainWindow::setIp(const std::string& ip) { this->ip = ip; }
+std::string MainWindow::getIp() const { return ip; }
+void MainWindow::setPort(const std::string& port) { this->port = port; }
+std::string MainWindow::getPort() const { return port; }

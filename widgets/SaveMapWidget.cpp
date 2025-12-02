@@ -10,7 +10,9 @@
 #include <QStandardPaths>
 #include "../util/DataIO.h"
 #include "NoticeDialog.h"
-
+#include <boost/asio.hpp>
+#include "../util/MapPointButton.h"
+#include "../util/Edge.h"
 SaveMapWidget::SaveMapWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner(owner)
 {
@@ -124,5 +126,43 @@ void SaveMapWidget::fileSaveButtonClicked()
 
 void SaveMapWidget::netSaveButtonClicked()
 {
-    // TODO
+    using boost::asio::ip::tcp;
+    std::string ip = owner->getIp();
+    std::string port = owner->getPort();
+    std::string token = tokenTextLine->text().toStdString();
+    try {
+        tcp::iostream stream(ip, port);
+        if (!stream) {
+            new NoticeDialog("错误","连接失败");
+            return;
+        }
+        stream << "#NAVIGATION#@CHECK\r\n";
+        stream << "#NAVIGATION#@" << token << "\r\n";
+        stream.flush();
+        std::string response;
+        std::getline(stream, response);
+        if (response == "#NAVIGATION#@TOKEN_OK") {
+            stream << "#NAVIGATION#@CHECK2\r\n";
+            stream.flush();
+            //[CHECK]@[POINT]@[NAME]@[X]@[Y]@[TYPE]@[CONTENT]
+            for (auto point : owner->mapDataContainer->pointButtonContainer) {
+                stream << "#NAVIGATION#@POINT@" << point->getName() << "@" << point->getX() << "@" << point->getY() << "@" << point->getType() << "@" << point->getContent() << "\r\n";
+                stream.flush();
+            }
+            //[CHECK]@[EDGE]@[firstName]@[secondNmae]@[type]
+            for (auto edge: owner->mapDataContainer->edgeContainer) {
+                stream << "#NAVIGATION#@EDGE@" << edge->getFirstPointButton()->getName() << "@" << edge->getSecondPointButton()->getName() << "@" << edge->getType() << "\r\n";
+                stream.flush();
+            }
+            stream << "#NAVIGATION#@END\r\n";
+            stream.flush();
+        } else if (response == "#NAVIGATION#@TOKEN_ERROR") {
+            new NoticeDialog("错误","TOKEN已被使用");
+        } else {
+            new NoticeDialog("错误","地图保存失败，连接错误");
+        }
+    } catch (std::exception& e) {
+        new NoticeDialog("错误","连接发生错误");
+        return;
+    }
 }
