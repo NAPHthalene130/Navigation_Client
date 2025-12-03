@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.30)
 
 if (WIN32 AND NOT DEFINED CMAKE_CXX_COMPILER)
-    set(_qt_root "H:/Qt")
+    set(_qt_root "F:/Qt")
     if (EXISTS "${_qt_root}")
         file(GLOB _qt_tools_mingw "${_qt_root}/Tools/mingw*_64/bin/g++.exe")
         if (_qt_tools_mingw)
@@ -25,7 +25,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 cmake_policy(SET CMP0167 NEW)
 
 if (NOT DEFINED CMAKE_PREFIX_PATH)
-    set(_qt_root "H:/Qt")
+    set(_qt_root "F:/Qt")
     if (EXISTS "${_qt_root}")
         file(GLOB _qt_mingw_candidates "${_qt_root}/*/mingw_64")
         list(SORT _qt_mingw_candidates)

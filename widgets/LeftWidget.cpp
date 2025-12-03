@@ -28,7 +28,7 @@ void LeftWidget::drawWidget(MapDataContainer mapDataContainer)
     canvasLabel->setScaledContents(true);
   }
 
-  QString path = QCoreApplication::applicationDirPath() + "/img/mapPic.png";
+  QString path = "F:/CODE/QT/Navigation/img/mapPic.png";
   QPixmap basePixmap(path);
   if (basePixmap.isNull()) {
     basePixmap = QPixmap(1500,1000);
@@ -83,7 +83,7 @@ void LeftWidget::hideMapDataContainer(MapDataContainer* mapDataContainer)
     if (!btn) continue;
     btn->hide();
   }
-  QString path = QCoreApplication::applicationDirPath() + "/img/mapPic.png";
+  QString path = "F:/CODE/QT/Navigation/img/mapPic.png";
   QPixmap basePixmap(path);
   if (basePixmap.isNull()) {
     basePixmap = QPixmap(1500,1000);

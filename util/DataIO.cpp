@@ -104,6 +104,7 @@ void DataIO::writeNet(const std::string& ip, const std::string& port, MapDataCon
             }
             stream << "#NAVIGATION#@END\n";
             stream.flush();
+            new NoticeDialog("提示","保存成功");
         } else if (response == "#NAVIGATION#@TOKEN_ERROR") {
             new NoticeDialog("错误","TOKEN已被使用");
         } else {
@@ -114,12 +115,10 @@ void DataIO::writeNet(const std::string& ip, const std::string& port, MapDataCon
         new NoticeDialog("错误","连接发生错误");
         return;
     }
-    new NoticeDialog("提示","地图保存成功");
 }
 
 MapDataContainer* DataIO::readFile(const std::string& path)
 {
-    // TODO
     std::filesystem::path fsPath(path);
     if (!std::filesystem::exists(fsPath))
     {
