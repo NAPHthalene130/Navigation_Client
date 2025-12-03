@@ -146,7 +146,26 @@ void LoadMapWidget::fileLoadButtonClicked()
 
 void LoadMapWidget::netLoadButtonClicked()
 {
-    //TODO DATAIO
+    if (tokenTextLine->text().isEmpty()) {
+        new NoticeDialog("错误","请输入TOKEN");
+        return;
+    }
+    MapDataContainer* newContainer = DataIO::readNet(owner->getIp(),owner->getPort(),tokenTextLine->text().toStdString());
+    
+    if (tempMapDataContainer) {
+        tempMapDataContainer->reset();
+        delete tempMapDataContainer;
+    }
+    tempMapDataContainer = newContainer;
+
+    if (owner->mapDataContainer) {
+        owner->leftWidget->hideMapDataContainer(owner->mapDataContainer);
+    }
+
+    for (auto pointButton : tempMapDataContainer->pointButtonContainer) {
+        pointButton->setMainWindow(owner);
+    }
+    owner->displayPoints(tempMapDataContainer);
 }
 
 void LoadMapWidget::okButtonClicked()
@@ -159,4 +178,5 @@ void LoadMapWidget::okButtonClicked()
     tempMapDataContainer = new MapDataContainer();
     owner->setMouseClickedType(0);
     owner->changeRightWidgetShow(owner->getMainWidget());
+    owner->displayPoints(owner->mapDataContainer);
 }

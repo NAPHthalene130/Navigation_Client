@@ -126,5 +126,10 @@ void SaveMapWidget::fileSaveButtonClicked()
 
 void SaveMapWidget::netSaveButtonClicked()
 {
-    //TODO DATAIO
+    if (tokenTextLine->text().isEmpty()) {
+        new NoticeDialog("错误","请输入TOKEN");
+        return;
+    }
+    DataIO::writeNet(this->owner->getIp(),this->owner->getPort(), this->owner->mapDataContainer, tokenTextLine->text().toStdString());
+    new NoticeDialog("提示","地图保存成功");
 }

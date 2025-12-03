@@ -81,27 +81,28 @@ void DataIO::writeNet(const std::string& ip, const std::string& port, MapDataCon
             new NoticeDialog("错误","连接失败");
             return;
         }
-        stream << "#NAVIGATION#CHECK\r\n";
-        stream << "#NAVIGATION#@SAVE@" << token << "\r\n";
+        stream << "#NAVIGATION#CHECK\n";
+        stream.flush();
+        stream << "#NAVIGATION#@SAVE@" << token << "\n";
         stream.flush();
         std::string response;
         std::getline(stream, response);
         if (response == "#NAVIGATION#@TOKEN_OK") {
-            stream << "#NAVIGATION#@CHECK2\r\n";
+            stream << "#NAVIGATION#@CHECK2\n";
             stream.flush();
             //[CHECK]@[POINT]@[NAME]@[X]@[Y]@[TYPE]@[CONTENT]
             for (auto point : container->pointButtonContainer) {
                 stream << "#NAVIGATION#@POINT@" << point->getName() << "@" << point->getX() << "@" << point->getY() << "@" << point->getType() << "@" << point->getContent() << "\r\n";
                 stream.flush();
             }
-            stream << "#NAVIGATION#@EDGES\r\n";
+            stream << "#NAVIGATION#@EDGES\n";
             stream.flush();
             //[CHECK]@[EDGE]@[firstName]@[secondNmae]@[type]
             for (auto edge: container->edgeContainer) {
                 stream << "#NAVIGATION#@EDGE@" << edge->getFirstPointButton()->getName() << "@" << edge->getSecondPointButton()->getName() << "@" << edge->getType() << "\r\n";
                 stream.flush();
             }
-            stream << "#NAVIGATION#@END\r\n";
+            stream << "#NAVIGATION#@END\n";
             stream.flush();
         } else if (response == "#NAVIGATION#@TOKEN_ERROR") {
             new NoticeDialog("错误","TOKEN已被使用");
@@ -211,8 +212,8 @@ MapDataContainer* DataIO::readNet(const std::string& ip, const std::string& port
             new NoticeDialog("错误","连接失败");
             return new MapDataContainer();
         }
-        stream << "#NAVIGATION#@CHECK\r\n";
-        stream << "#NAVIGATION#@LOAD@" << token << "\r\n";
+        stream << "#NAVIGATION#CHECK\n";
+        stream << "#NAVIGATION#@LOAD@" << token << "\n";
         stream.flush();
         std::string response;
         std::getline(stream, response);
@@ -274,5 +275,5 @@ MapDataContainer* DataIO::readNet(const std::string& ip, const std::string& port
     } catch (const std::exception& e) {
         new NoticeDialog("错误", e.what());
     }
-    return new MapDataContainer();
+    return tempMapDataContainer;
 }
