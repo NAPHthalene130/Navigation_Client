@@ -14,10 +14,13 @@
 #include "widgets/mapConstructorWidget.h"
 #include "widgets/LoadMapWidget.h"
 #include "widgets/SaveMapWidget.h"
+#include "widgets/NavigationWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    ip = "127.0.0.1";
+    port = "10086";
     QWidget* central = new QWidget(this);
     setCentralWidget(central);
     QHBoxLayout* layout = new QHBoxLayout(central);
@@ -42,28 +45,28 @@ MainWindow::MainWindow(QWidget *parent)
     mapConstructorWidget = new MapConstructorWidget(this, rightWidget);
     loadMapWidget = new LoadMapWidget(this, rightWidget);
     saveMapWidget = new SaveMapWidget(this, rightWidget);
+    navigationWidget = new NavigationWidget(this, rightWidget);
     changeRightWidgetShow(mainWidget);
 
-    auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK, this);
-    t1->setX(120); t1->setY(160); t1->setName("TEST_POINT_1");
-    mapDataContainer->addMapPointButton(t1);
-    auto* t2 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
-    t2->setX(480); t2->setY(300); t2->setName("TEST_POINT_2");
-    mapDataContainer->addMapPointButton(t2);
-    auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
-    t3->setX(990); t3->setY(990); t3->setName("TEST_POINT_3");
-    mapDataContainer->addMapPointButton(t3);
-
     //下面拿来测试
-    Edge* e1 = new Edge(t1, t2);
-    e1->setType(0);
-    Edge* e2 = new Edge(t2, t3);
-    e2->setType(1);
-    Edge* e3 = new Edge(t1, t3);
-    e3->setType(2);
-    mapDataContainer->edgeContainer.push_back(e1);
-    mapDataContainer->edgeContainer.push_back(e2);
-    mapDataContainer->edgeContainer.push_back(e3);
+    // auto* t1 = new MapPointButton(MapPointButton::ROUTE_MARK, this);
+    // t1->setX(120); t1->setY(160); t1->setName("TEST_POINT_1");
+    // mapDataContainer->addMapPointButton(t1);
+    // auto* t2 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
+    // t2->setX(480); t2->setY(300); t2->setName("TEST_POINT_2");
+    // mapDataContainer->addMapPointButton(t2);
+    // auto* t3 = new MapPointButton(MapPointButton::SCENIC_SPOT, this);
+    // t3->setX(990); t3->setY(990); t3->setName("TEST_POINT_3");
+    // mapDataContainer->addMapPointButton(t3);
+    // Edge* e1 = new Edge(t1, t2);
+    // e1->setType(0);
+    // Edge* e2 = new Edge(t2, t3);
+    // e2->setType(1);
+    // Edge* e3 = new Edge(t1, t3);
+    // e3->setType(2);
+    // mapDataContainer->edgeContainer.push_back(e1);
+    // mapDataContainer->edgeContainer.push_back(e2);
+    // mapDataContainer->edgeContainer.push_back(e3);
     //上面拿来测试
     displayPoints(mapDataContainer);
 }
@@ -107,4 +110,10 @@ MainWidget* MainWindow::getMainWidget() const { return mainWidget; }
 MapConstructorWidget* MainWindow::getMapConstructorWidget() const { return mapConstructorWidget; }
 LoadMapWidget* MainWindow::getLoadMapWidget() const { return loadMapWidget; }
 SaveMapWidget* MainWindow::getSaveMapWidget() const { return saveMapWidget; }
+NavigationWidget* MainWindow::getNavigationWidget() const { return navigationWidget; }
 MapDataContainer* MainWindow::getMapDataContainer() const { return mapDataContainer; }
+
+void MainWindow::setIp(const std::string& ip) { this->ip = ip; }
+std::string MainWindow::getIp() const { return ip; }
+void MainWindow::setPort(const std::string& port) { this->port = port; }
+std::string MainWindow::getPort() const { return port; }

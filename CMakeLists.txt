@@ -1,4 +1,21 @@
 cmake_minimum_required(VERSION 3.30)
+
+if (WIN32 AND NOT DEFINED CMAKE_CXX_COMPILER)
+    set(_qt_root "H:/Qt")
+    if (EXISTS "${_qt_root}")
+        file(GLOB _qt_tools_mingw "${_qt_root}/Tools/mingw*_64/bin/g++.exe")
+        if (_qt_tools_mingw)
+            list(SORT _qt_tools_mingw)
+            list(REVERSE _qt_tools_mingw)
+            list(GET _qt_tools_mingw 0 _qt_compiler)
+            set(CMAKE_CXX_COMPILER "${_qt_compiler}")
+            
+            string(REPLACE "g++.exe" "gcc.exe" _qt_c_compiler "${_qt_compiler}")
+            set(CMAKE_C_COMPILER "${_qt_c_compiler}")
+        endif()
+    endif()
+endif()
+
 project(Navigation LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -22,8 +39,8 @@ endif()
 if (DEFINED CMAKE_PREFIX_PATH AND NOT DEFINED Qt6_DIR)
     set(Qt6_DIR "${CMAKE_PREFIX_PATH}/lib/cmake/Qt6")
 endif()
-if (EXISTS "H:/vcpkg/installed/x64-mingw-dynamic")
-    list(APPEND CMAKE_PREFIX_PATH "H:/vcpkg/installed/x64-mingw-dynamic")
+if (EXISTS "H:/vcpkg/installed/x64-windows")
+    list(APPEND CMAKE_PREFIX_PATH "H:/vcpkg/installed/x64-windows")
 endif()
 
 set(QT_FORCE_CMP0156_TO_VALUE NEW)
@@ -53,6 +70,10 @@ qt_add_executable(Navigation
     widgets/LoadMapWidget.h
     widgets/SaveMapWidget.cpp
     widgets/SaveMapWidget.h
+    widgets/NavigationWidget.cpp
+    widgets/NavigationWidget.h
+    widgets/infoWidget.cpp
+    widgets/infoWidget.h
     widgets/addPointWidget.cpp
     widgets/addPointWidget.h
     util/MapDataContainer.cpp
@@ -65,6 +86,8 @@ qt_add_executable(Navigation
     util/Edge.h
     util/DataIO.cpp
     util/DataIO.h
+    util/DSU.cpp
+    util/DSU.h
     img/mapPic.png
 )
 
@@ -78,7 +101,7 @@ target_link_libraries(Navigation
         ws2_32
 )
 
-target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/util)
+target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS} "H:/vcpkg/installed/x64-windows/include" ${CMAKE_SOURCE_DIR}/util)
 
 include(GNUInstallDirs)
 

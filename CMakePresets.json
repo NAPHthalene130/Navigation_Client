@@ -1,0 +1,56 @@
+{
+	"version": 8,
+	"configurePresets": [
+		{
+			"name": "windows-mingw-qt6",
+			"displayName": "Windows MinGW Qt6 Release",
+			"description": "Release build using MinGW and Qt6",
+			"generator": "MinGW Makefiles",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/dist/windows-mingw-qt6-run",
+				"CMAKE_C_COMPILER": "H:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+				"CMAKE_CXX_COMPILER": "H:/Qt/Tools/mingw1310_64/bin/g++.exe",
+				"CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_PREFIX_PATH": "H:/Qt/6.9.3/mingw_64"
+			}
+		},
+		{
+			"name": "windows-mingw-qt6-debug",
+			"displayName": "Windows MinGW Qt6 Debug",
+			"description": "Debug build using MinGW and Qt6",
+			"generator": "MinGW Makefiles",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/dist/windows-mingw-qt6-debug",
+				"CMAKE_C_COMPILER": "H:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+				"CMAKE_CXX_COMPILER": "H:/Qt/Tools/mingw1310_64/bin/g++.exe",
+				"CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_PREFIX_PATH": "H:/Qt/6.9.3/mingw_64"
+			}
+		},
+		{
+			"name": "GCC 13.1.0 x86_64-w64-mingw32",
+			"displayName": "GCC 13.1.0 x86_64-w64-mingw32",
+			"description": "正在使用编译器: C = h:\\Qt\\Tools\\mingw1310_64\\bin\\gcc.exe, CXX = h:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe",
+			"generator": "MinGW Makefiles",
+			"binaryDir": "${sourceDir}/out/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+				"CMAKE_C_COMPILER": "h:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+				"CMAKE_CXX_COMPILER": "h:/Qt/Tools/mingw1310_64/bin/g++.exe",
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		}
+	],
+    "buildPresets": [
+        {
+            "name": "windows-mingw-qt6",
+            "configurePreset": "windows-mingw-qt6"
+        },
+        {
+            "name": "windows-mingw-qt6-debug",
+            "configurePreset": "windows-mingw-qt6-debug"
+        }
+    ]
+}

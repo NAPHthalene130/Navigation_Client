@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-4df0523d5410a373eeb7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Navigation",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Navigation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Navigation-Debug-dfe2a81f163a72fd06e2.json",
+					"name" : "Navigation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Navigation_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Navigation_autogen-Debug-3fe9157d7ab648f4f705.json",
+					"name" : "Navigation_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Navigation_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Navigation_autogen_timestamp_deps-Debug-b9174abc68f3e7423ada.json",
+					"name" : "Navigation_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "H:/CODE/Trae/Navigation/Navigation_Client/out/build/GCC 13.1.0 x86_64-w64-mingw32",
+		"source" : "H:/CODE/Trae/Navigation/Navigation_Client"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

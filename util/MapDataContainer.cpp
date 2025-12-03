@@ -1,5 +1,6 @@
 #include "MapDataContainer.h"
 #include "MapPointButton.h"
+#include "Edge.h"
 
 void MapDataContainer::addMapPointButton(MapPointButton* button)
 {
@@ -38,4 +39,17 @@ void MapDataContainer::cleanPointButtonContainerNullptr()
             ++it;
         }
     }
+}
+
+void MapDataContainer::reset()
+{
+    for (auto button : pointButtonContainer) {
+        button->hide();
+        button->deleteLater();
+    }
+    pointButtonContainer.clear();
+    for (auto edge : edgeContainer) {
+        delete edge;
+    }
+    edgeContainer.clear();
 }

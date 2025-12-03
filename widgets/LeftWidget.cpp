@@ -46,13 +46,17 @@ void LeftWidget::drawWidget(MapDataContainer mapDataContainer)
     if (!a || !b) continue;
     QPen pen;
     if (e->getType() == 0) {
-      pen = QPen(QColor(135,206,235), 3); // 天蓝色
+      //默认情况
+      pen = QPen(QColor(00,102,255), 5); // 蓝色
     } else if (e->getType() == 1) {
-      // TODO: type==1 边颜色设置
-      pen = QPen(QColor(135,206,235), 3);
+      //管道边
+      pen = QPen(QColor(0,51,153), 5); //深蓝色
     } else if (e->getType() == 2) {
-      // TODO: type==2 边颜色设置
-      pen = QPen(QColor(135,206,235), 3);
+      //导航边
+      pen = QPen(QColor(204,41,0), 5);
+    } else if (e->getType() == -1) {
+      //隐藏边
+      pen = QPen(QColor(135,206,235), 5);
     }
     painter.setPen(pen);
     painter.drawLine(QPoint(a->getX()+10, a->getY()+10), QPoint(b->getX()+10, b->getY()+10));
@@ -93,8 +97,8 @@ void LeftWidget::hideMapDataContainer(MapDataContainer* mapDataContainer)
 }
 
 void LeftWidget::mousePressEvent(QMouseEvent *event) {
-  nowClickedX = event->x();
-  nowClickedY = event->y();
+  nowClickedX = event->position().x();
+  nowClickedY = event->position().y();
   int t = owner->getMouseClickedType();
   if (event->button() == Qt::LeftButton) {
     if (t == MainWindow::DEFAULT) {

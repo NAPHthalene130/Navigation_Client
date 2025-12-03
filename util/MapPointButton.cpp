@@ -2,8 +2,13 @@
 #include "DebugDialog.h"
 #include "NoticeDialog.h"
 #include "../widgets/MapConstructorWidget.h"
+#include "../widgets/NavigationWidget.h"
 #include "Edge.h"
 #include "NoticeDialog.h"
+#include <map>
+#include <queue>
+#include <vector>
+#include <set>
 
 MapPointButton::MapPointButton(MapPointButton* otherButton)
     : QPushButton(nullptr)
@@ -22,7 +27,7 @@ MapPointButton::MapPointButton(MapPointButton* otherButton)
 }
 
 MapPointButton::MapPointButton(QWidget* parent)
-    : QPushButton(parent)
+    : QPushButton(parent), mainWindow(nullptr)
 {
     setFixedSize(20,20);
     setFlat(true);
@@ -47,11 +52,11 @@ void MapPointButton::applyStyle()
     QString darkColor;
 
     if (type == ROUTE_MARK) {
-        brightColor = QString("rgb(180, 190, 200)");
-        darkColor = QString("rgb(140, 150, 160)");
+        brightColor = QString("rgba(145, 145, 145, 1)");
+        darkColor = QString("rgba(113, 113, 113, 1)");
     } else {
-        brightColor = QString("rgb(144, 238, 144)");
-        darkColor = QString("rgb(100, 180, 100)");
+        brightColor = QString("rgba(22, 208, 22, 1)");
+        darkColor = QString("rgba(22, 153, 22, 1)");
     }
 
     QString style = QString(
@@ -72,11 +77,15 @@ void MapPointButton::setX(int v) { x = v; }
 int MapPointButton::getY() const { return y; }
 void MapPointButton::setY(int v) { y = v; }
 int MapPointButton::getType() const { return type; }
-void MapPointButton::setType(int v) { type = v; }
+void MapPointButton::setType(int v) {
+    type = v;
+    applyStyle();
+}
 std::string MapPointButton::getName() const { return name; }
 void MapPointButton::setName(const std::string& n) { name = n; }
 std::string MapPointButton::getContent() const { return content; }
 void MapPointButton::setContent(const std::string& c) { content = c; }
+void MapPointButton::setMainWindow(MainWindow* mw) { mainWindow = mw; }
 
 void MapPointButton::clicked()
 {
@@ -84,10 +93,31 @@ void MapPointButton::clicked()
     if (mainWindow->getMouseClickedType() == MainWindow::DELETE_POINT) {
         auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
         if (!container) return;
+
+        for (auto it = container->edgeContainer.begin(); it != container->edgeContainer.end(); /* 这里留空 */) {
+            if (((*it)->getFirstPointButton()->getName() == this->getName()) ||
+                ((*it)->getSecondPointButton()->getName() == this->getName())) {
+                delete *it;
+                it = container->edgeContainer.erase(it);
+                } else {
+                    ++it;
+                }
+        }
         container->deleteButtonByName(this->name);
         container->cleanPointButtonContainerNullptr();
+        if (mainWindow->leftWidget) {
+            if (mainWindow->leftWidget->firstClickedPointButton == this) {
+                mainWindow->leftWidget->firstClickedPointButton = nullptr;
+                mainWindow->leftWidget->clickedButtonNum = 0;
+            }
+            if (mainWindow->leftWidget->secondClickedPointButton == this) {
+                mainWindow->leftWidget->secondClickedPointButton = nullptr;
+            }
+            if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
+        }
         mainWindow->displayPoints(container);
     } else if (mainWindow->getMouseClickedType() == MainWindow::ADD_EDGE) {
+        //添加边
         if (mainWindow->leftWidget->clickedButtonNum == 0) {
             mainWindow->leftWidget->firstClickedPointButton = this;
             mainWindow->leftWidget->clickedButtonNum++;
@@ -141,5 +171,23 @@ void MapPointButton::clicked()
             mainWindow->leftWidget->clickedButtonNum = 0;
             if (mainWindow->mapConstructorWidget) mainWindow->mapConstructorWidget->buttonColorUpdate();
         }
+    } else if (mainWindow->getMouseClickedType() == MainWindow::NAVIGATION) {
+        //导航逻辑
+        auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
+        if (!container) return;
+        if (mainWindow->navigationWidget->getClickedNum() == 0) {
+            mainWindow->navigationWidget->setFirstClickedButtonName(this->getName());
+            mainWindow->navigationWidget->clickedButtonNum++;
+            if (mainWindow->navigationWidget) mainWindow->navigationWidget->buttonColorUpdate();
+        } else if (mainWindow->navigationWidget->getClickedNum() == 1) {
+            if (mainWindow->navigationWidget->getFirstClickedButtonName() == this->getName()) return;
+            mainWindow->navigationWidget->setSecondClickedButtonName(this->getName());
+            mainWindow->navigationWidget->dij(mainWindow->navigationWidget->getFirstClickedButtonName(), mainWindow->navigationWidget->getSecondClickedButtonName());
+            mainWindow->navigationWidget->setClickedNum(0);
+        }
+    } else if (mainWindow->getMouseClickedType() == MainWindow::INFO) {
+        //信息展示
+        mainWindow->navigationWidget->infoWidget->setPointButton(this);
+        mainWindow->navigationWidget->switchInfoShowWidget(mainWindow->navigationWidget->infoWidget);
     }
 }

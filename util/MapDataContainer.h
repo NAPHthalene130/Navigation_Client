@@ -10,7 +10,7 @@ class MapDataContainer
 public:
     MapDataContainer() = default;
     ~MapDataContainer() = default;
-
+    void reset();
     void addMapPointButton(MapPointButton* button);
     void deleteButtonByName(const std::string& name);
     void cleanPointButtonContainerNullptr();
