@@ -87,7 +87,7 @@ void LeftWidget::drawPathWithGradient(MapDataContainer* mapDataContainer, const 
         canvasLabel->setScaledContents(true);
     }
 
-    QString pathStr = QCoreApplication::applicationDirPath() + "/img/mapPic.png";
+    QString pathStr = "F:/CODE/QT/Navigation/img/mapPic.png";
     QPixmap basePixmap(pathStr);
     if (basePixmap.isNull()) {
         basePixmap = QPixmap(1500, 1000);
@@ -99,10 +99,8 @@ void LeftWidget::drawPathWithGradient(MapDataContainer* mapDataContainer, const 
     QPainter painter(&basePixmap);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-    // Create a set for fast lookup of path edges
     std::set<Edge*> pathSet(path.begin(), path.end());
-    
-    // Map edges to their index in the path for color calculation
+
     std::map<Edge*, int> edgeToIndex;
     for(size_t i = 0; i < path.size(); ++i) {
         edgeToIndex[path[i]] = i;
@@ -128,8 +126,6 @@ void LeftWidget::drawPathWithGradient(MapDataContainer* mapDataContainer, const 
             int b = 0;
             pen = QPen(QColor(r, g, b), 5);
         } else {
-            // Hidden/Default style for non-path edges
-            // Type -1 style from original logic
             pen = QPen(QColor(135,206,235), 5);
         }
         

@@ -17,6 +17,7 @@
 #include <algorithm>
 #include <functional>
 #include "../util/NoticeDialog.h"
+#include <iostream>
 NavigationWidget::NavigationWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner(owner)
 {
@@ -153,6 +154,7 @@ void NavigationWidget::pipeButtonClicked()
 
 void NavigationWidget::navigationButtonClicked()
 {
+    std::cout << "NAVIGATION" << std::endl;
     owner->displayPoints(owner->mapDataContainer);
     setClickedNum(0);
     setFirstClickedButtonName("");

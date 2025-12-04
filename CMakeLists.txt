@@ -9,7 +9,7 @@ if (WIN32 AND NOT DEFINED CMAKE_CXX_COMPILER)
             list(REVERSE _qt_tools_mingw)
             list(GET _qt_tools_mingw 0 _qt_compiler)
             set(CMAKE_CXX_COMPILER "${_qt_compiler}")
-            
+
             string(REPLACE "g++.exe" "gcc.exe" _qt_c_compiler "${_qt_compiler}")
             set(CMAKE_C_COMPILER "${_qt_c_compiler}")
         endif()
@@ -50,49 +50,49 @@ find_package(Boost 1.80 CONFIG REQUIRED COMPONENTS system)
 qt_standard_project_setup()
 
 qt_add_executable(Navigation
-    WIN32 MACOSX_BUNDLE
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    util/MapDataNetReader.cpp
-    util/MapDataNetReader.h
-    util/ClickedButton.cpp
-    util/ClickedButton.h
-    widgets/mainWidget.cpp
-    widgets/mainWidget.h
-    util/MapPointButton.cpp
-    util/MapPointButton.h
-    widgets/leftWidget.cpp
-    widgets/leftWidget.h
-    widgets/mapConstructorWidget.cpp
-    widgets/mapConstructorWidget.h
-    widgets/LoadMapWidget.cpp
-    widgets/LoadMapWidget.h
-    widgets/SaveMapWidget.cpp
-    widgets/SaveMapWidget.h
-    widgets/NavigationWidget.cpp
-    widgets/NavigationWidget.h
-    widgets/infoWidget.cpp
-    widgets/infoWidget.h
-    widgets/addPointWidget.cpp
-    widgets/addPointWidget.h
-    util/MapDataContainer.cpp
-    util/MapDataContainer.h
-    util/DebugDialog.cpp
-    util/DebugDialog.h
-    util/NoticeDialog.cpp
-    util/NoticeDialog.h
-    util/Edge.cpp
-    util/Edge.h
-    util/DataIO.cpp
-    util/DataIO.h
-    util/DSU.cpp
-    util/DSU.h
-    img/mapPic.png
+        WIN32 MACOSX_BUNDLE
+        main.cpp
+        mainwindow.cpp
+        mainwindow.h
+        util/MapDataNetReader.cpp
+        util/MapDataNetReader.h
+        util/ClickedButton.cpp
+        util/ClickedButton.h
+        widgets/mainWidget.cpp
+        widgets/mainWidget.h
+        util/MapPointButton.cpp
+        util/MapPointButton.h
+        widgets/leftWidget.cpp
+        widgets/leftWidget.h
+        widgets/mapConstructorWidget.cpp
+        widgets/mapConstructorWidget.h
+        widgets/LoadMapWidget.cpp
+        widgets/LoadMapWidget.h
+        widgets/SaveMapWidget.cpp
+        widgets/SaveMapWidget.h
+        widgets/NavigationWidget.cpp
+        widgets/NavigationWidget.h
+        widgets/infoWidget.cpp
+        widgets/infoWidget.h
+        widgets/addPointWidget.cpp
+        widgets/addPointWidget.h
+        util/MapDataContainer.cpp
+        util/MapDataContainer.h
+        util/DebugDialog.cpp
+        util/DebugDialog.h
+        util/NoticeDialog.cpp
+        util/NoticeDialog.h
+        util/Edge.cpp
+        util/Edge.h
+        util/DataIO.cpp
+        util/DataIO.h
+        util/DSU.cpp
+        util/DSU.h
+        img/mapPic.png
 )
 
 target_link_libraries(Navigation
-    PRIVATE
+        PRIVATE
         Qt::Core
         Qt::Widgets
         Qt::Network
@@ -106,17 +106,17 @@ target_include_directories(Navigation PRIVATE ${Boost_INCLUDE_DIRS} "H:/vcpkg/in
 include(GNUInstallDirs)
 
 install(TARGETS Navigation
-    BUNDLE  DESTINATION .
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        BUNDLE  DESTINATION .
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/img DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 qt_generate_deploy_app_script(
-    TARGET Navigation
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
+        TARGET Navigation
+        OUTPUT_SCRIPT deploy_script
+        NO_UNSUPPORTED_PLATFORM_ERROR
 )
 install(SCRIPT ${deploy_script})
 
