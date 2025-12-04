@@ -189,5 +189,8 @@ void MapPointButton::clicked()
         //信息展示
         mainWindow->navigationWidget->infoWidget->setPointButton(this);
         mainWindow->navigationWidget->switchInfoShowWidget(mainWindow->navigationWidget->infoWidget);
+    } else if (mainWindow->getMouseClickedType() == MainWindow::DFS) {
+        if (this->type != 2) return;
+        mainWindow->navigationWidget->dfs(this->getName());
     }
 }

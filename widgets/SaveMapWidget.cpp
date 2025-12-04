@@ -132,3 +132,4 @@ void SaveMapWidget::netSaveButtonClicked()
     }
     DataIO::writeNet(this->owner->getIp(),this->owner->getPort(), this->owner->mapDataContainer, tokenTextLine->text().toStdString());
 }
+

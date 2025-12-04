@@ -10,6 +10,7 @@
 #include <QPen>
 #include <QCoreApplication>
 #include "../util/Edge.h"
+#include <set>
 
 LeftWidget::LeftWidget(MainWindow *owner, QWidget *parent)
     : QWidget(parent), owner(owner) {
@@ -74,6 +75,80 @@ void LeftWidget::drawWidget(MapDataContainer mapDataContainer)
     btn->raise();
     btn->show();
   }
+}
+
+void LeftWidget::drawPathWithGradient(MapDataContainer* mapDataContainer, const std::vector<Edge*>& path)
+{
+    if (!mapDataContainer) return;
+    setFixedSize(1500, 1000);
+    if (!canvasLabel) {
+        canvasLabel = new QLabel(this);
+        canvasLabel->setGeometry(0, 0, 1500, 1000);
+        canvasLabel->setScaledContents(true);
+    }
+
+    QString pathStr = QCoreApplication::applicationDirPath() + "/img/mapPic.png";
+    QPixmap basePixmap(pathStr);
+    if (basePixmap.isNull()) {
+        basePixmap = QPixmap(1500, 1000);
+        basePixmap.fill(Qt::white);
+    } else {
+        basePixmap = basePixmap.scaled(1500, 1000, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    }
+
+    QPainter painter(&basePixmap);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+
+    // Create a set for fast lookup of path edges
+    std::set<Edge*> pathSet(path.begin(), path.end());
+    
+    // Map edges to their index in the path for color calculation
+    std::map<Edge*, int> edgeToIndex;
+    for(size_t i = 0; i < path.size(); ++i) {
+        edgeToIndex[path[i]] = i;
+    }
+
+    for (auto* e : mapDataContainer->edgeContainer) {
+        if (!e) continue;
+        auto* a = e->getFirstPointButton();
+        auto* b = e->getSecondPointButton();
+        if (!a || !b) continue;
+        
+        QPen pen;
+        if (pathSet.count(e)) {
+            // Gradient: Green -> Red
+            int index = edgeToIndex[e];
+            int pathSize = path.size();
+            double t = 0.0;
+            if (pathSize > 1) {
+                t = (double)index / (pathSize - 1);
+            }
+            int r = (int)(t * 255);
+            int g = (int)((1 - t) * 255);
+            int b = 0;
+            pen = QPen(QColor(r, g, b), 5);
+        } else {
+            // Hidden/Default style for non-path edges
+            // Type -1 style from original logic
+            pen = QPen(QColor(135,206,235), 5);
+        }
+        
+        painter.setPen(pen);
+        painter.drawLine(QPoint(a->getX()+10, a->getY()+10), QPoint(b->getX()+10, b->getY()+10));
+    }
+    painter.end();
+
+    canvasLabel->setPixmap(basePixmap);
+    canvasLabel->show();
+    canvasLabel->raise();
+
+    for (auto* btn : mapDataContainer->pointButtonContainer) {
+        if (!btn) continue;
+        if (btn->parentWidget() != this) btn->setParent(this);
+        btn->move(btn->getX(), btn->getY());
+        btn->raise();
+        btn->show();
+    }
 }
 
 void LeftWidget::hideMapDataContainer(MapDataContainer* mapDataContainer)

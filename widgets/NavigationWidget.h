@@ -25,10 +25,11 @@ public:
     std::string getSecondClickedButtonName() const;
     int getClickedNum() const;
     void dij(std::string start, std::string end);
-
+    void dfs(std::string start);
     QLabel* getDefaultLabel() const;
     void setDefaultLabel(QLabel* label);
     InfoWidget* infoWidget;
+
 
 private:
     MainWindow* owner;
@@ -37,6 +38,7 @@ private:
     ClickedButton* pipeButton;
     ClickedButton* navigationButton;
     ClickedButton* infoButton;
+    ClickedButton* dfsButton;
     QWidget* infoShowWidget;
     QVBoxLayout* infoLayout;
     QLabel* defaultLabel;
@@ -49,6 +51,7 @@ private slots:
     void pipeButtonClicked();
     void navigationButtonClicked();
     void infoButtonClicked();
+    void dfsButtonClicked();
 };
 
 #endif // NAVIGATION_WIDGETS_NAVIGATIONWIDGET_H
