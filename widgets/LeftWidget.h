@@ -13,6 +13,7 @@ public:
     int nowClickedX;
     int nowClickedY;
     void drawWidget(MapDataContainer mapDataContainer);
+    void drawPathWithGradient(MapDataContainer* mapDataContainer, const std::vector<Edge*>& path);
     void hideMapDataContainer(MapDataContainer* mapDataContainer);
     MapPointButton* firstClickedPointButton;
     MapPointButton* secondClickedPointButton;

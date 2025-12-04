@@ -25,6 +25,7 @@ public:
     static const int PIPE = 5;
     static const int NAVIGATION = 6;
     static const int INFO = 7;
+    static const int DFS = 8;
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
