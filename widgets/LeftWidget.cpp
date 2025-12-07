@@ -114,7 +114,6 @@ void LeftWidget::drawPathWithGradient(MapDataContainer* mapDataContainer, const 
         
         QPen pen;
         if (pathSet.count(e)) {
-            // Gradient: Green -> Red
             int index = edgeToIndex[e];
             int pathSize = path.size();
             double t = 0.0;

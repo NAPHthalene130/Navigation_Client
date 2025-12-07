@@ -18,6 +18,8 @@
 #include <functional>
 #include "../util/NoticeDialog.h"
 #include <iostream>
+#include <QRandomGenerator>
+
 NavigationWidget::NavigationWidget(MainWindow* owner, QWidget* parent)
     : QWidget(parent), owner(owner)
 {
@@ -156,9 +158,9 @@ void NavigationWidget::navigationButtonClicked()
 {
     std::cout << "NAVIGATION" << std::endl;
     owner->displayPoints(owner->mapDataContainer);
-    setClickedNum(0);
-    setFirstClickedButtonName("");
-    setSecondClickedButtonName("");
+    this->setClickedNum(0);
+    this->setFirstClickedButtonName("");
+    this->setSecondClickedButtonName("");
     if (owner) {
         owner->setMouseClickedType(MainWindow::NAVIGATION);
         buttonColorUpdate();
@@ -503,4 +505,82 @@ void NavigationWidget::dfs(std::string start) {
         NoticeDialog* notice = new NoticeDialog("提示", "无法到达全部景点");
         notice->exec();
     }
+}
+
+void NavigationWidget::dfsHelper(std::vector<std::vector<int>> &link,
+                                 std::vector<bool> &visited,
+                                 std::vector<std::vector<int>> &paths,
+                                 int current,
+                                 std::vector<int> &currentPath) {
+    currentPath.push_back(current);
+    visited[current] = true;
+    if (currentPath.size() == link.size()) {
+        paths.push_back(currentPath);
+    } else {
+        for (int neighbor : link[current]) {
+            if (!visited[neighbor]) {
+                dfsHelper(link, visited, paths, neighbor, currentPath);
+            }
+        }
+    }
+
+    visited[current] = false;
+    currentPath.pop_back();
+}
+
+void NavigationWidget::dfsSimple(std::string start) {
+    MapDataContainer* container = owner->getMapDataContainer();
+    std::map<std::string, int> nameToIndex;
+    int n = container->pointButtonContainer.size();
+
+    std::vector<MapPointButton*> indexToPoint(n);
+    int index = 0;
+    for (auto pointButton : container->pointButtonContainer) {
+        nameToIndex[pointButton->getName()] = index;
+        indexToPoint[index] = pointButton;
+        index++;
+    }
+
+    std::vector<std::vector<int>> link(n);
+    std::map<std::pair<std::string, std::string>, Edge*> namesToEdges;
+
+    for (Edge* edge : container->edgeContainer) {
+        std::string name1 = edge->getFirstPointButton()->getName();
+        std::string name2 = edge->getSecondPointButton()->getName();
+
+        int idx1 = nameToIndex[name1];
+        int idx2 = nameToIndex[name2];
+
+        link[idx1].push_back(idx2);
+        link[idx2].push_back(idx1);
+
+        namesToEdges[{name1, name2}] = edge;
+        namesToEdges[{name2, name1}] = edge;
+    }
+
+    std::vector<std::vector<int>> allPaths;
+    std::vector<bool> visited(n, false);
+    std::vector<int> currentPath;
+
+    int startIndex = nameToIndex[start];
+    dfsHelper(link, visited, allPaths, startIndex, currentPath);
+    if (allPaths.size() == 0) return;
+    nowShowIndex++;
+    nowShowIndex = nowShowIndex % allPaths.size();
+    std::vector<int> selectedPath = allPaths[nowShowIndex];
+
+    for (Edge* edge : owner->mapDataContainer->edgeContainer) {
+        edge->setType(-1);
+    }
+
+    for (int i = 0; i < selectedPath.size() - 1; ++i) {
+        std::string name1 = indexToPoint[selectedPath[i]]->getName();
+        std::string name2 = indexToPoint[selectedPath[i + 1]]->getName();
+
+        auto edgeIter = namesToEdges.find({name1, name2});
+        if (edgeIter != namesToEdges.end()) {
+            edgeIter->second->setType(2);
+        }
+    }
+    owner->displayPoints(owner->mapDataContainer);
 }

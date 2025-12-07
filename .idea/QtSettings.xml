@@ -4,6 +4,14 @@
     <option name="myCurrentProfile" value="QT" />
     <option name="mySettingsPerProfile">
       <map>
+        <entry key="Debug">
+          <value>
+            <PerProfileState>
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../Qt/6.9.2/mingw_64/qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../Qt/6.9.2/mingw_64/bin" />
+            </PerProfileState>
+          </value>
+        </entry>
         <entry key="QT">
           <value>
             <PerProfileState>

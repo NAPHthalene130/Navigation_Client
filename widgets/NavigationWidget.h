@@ -26,12 +26,14 @@ public:
     int getClickedNum() const;
     void dij(std::string start, std::string end);
     void dfs(std::string start);
+    void dfsSimple(std::string start);
     QLabel* getDefaultLabel() const;
     void setDefaultLabel(QLabel* label);
     InfoWidget* infoWidget;
 
 
 private:
+    int nowShowIndex = 0;
     MainWindow* owner;
     QVBoxLayout* layout;
     ClickedButton* backButton;
@@ -45,13 +47,18 @@ private:
     std::string firstClickedButtonName = "";
     std::string secondClickedButtonName = "";
     int clickedNum = 0;
-
+    void dfsHelper(std::vector<std::vector<int>> &link,
+                                     std::vector<bool> &visited,
+                                     std::vector<std::vector<int>> &paths,
+                                     int current,
+                                     std::vector<int> &currentPath);
 private slots:
     void backButtonClicked();
     void pipeButtonClicked();
     void navigationButtonClicked();
     void infoButtonClicked();
     void dfsButtonClicked();
+
 };
 
 #endif // NAVIGATION_WIDGETS_NAVIGATIONWIDGET_H

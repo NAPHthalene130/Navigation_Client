@@ -173,8 +173,6 @@ void MapPointButton::clicked()
         }
     } else if (mainWindow->getMouseClickedType() == MainWindow::NAVIGATION) {
         //导航逻辑
-        auto* container = mainWindow->mapConstructorWidget ? mainWindow->mapConstructorWidget->tempMapDataContainer : nullptr;
-        if (!container) return;
         if (mainWindow->navigationWidget->getClickedNum() == 0) {
             mainWindow->navigationWidget->setFirstClickedButtonName(this->getName());
             mainWindow->navigationWidget->clickedButtonNum++;
@@ -190,7 +188,6 @@ void MapPointButton::clicked()
         mainWindow->navigationWidget->infoWidget->setPointButton(this);
         mainWindow->navigationWidget->switchInfoShowWidget(mainWindow->navigationWidget->infoWidget);
     } else if (mainWindow->getMouseClickedType() == MainWindow::DFS) {
-        if (this->type != 2) return;
-        mainWindow->navigationWidget->dfs(this->getName());
+        mainWindow->navigationWidget->dfsSimple(this->getName());
     }
 }
